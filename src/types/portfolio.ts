@@ -114,28 +114,34 @@ export interface SkillGroup {
   skills: Skill[];
 }
 
-/** Dates use YYYY-MM; a null endDate means ongoing. */
 export interface Experience {
   id: string;
   role: string;
   organization: string;
-  startDate: string;
-  endDate: string | null;
-  description: string;
-  location?: string;
-  highlights: string[];
-  technologies: string[];
+  /** Human-readable chronology label, such as "Jul 2026 — Present". */
+  period: string;
+  /** Secondary organization metadata, such as a work arrangement. */
+  workArrangement?: string;
+  /** Keep individual points structured so the presentation can render a real list. */
+  descriptionBullets: string[];
+  link?: ExternalUrl;
+  /** Hidden entries remain in content but are omitted from the homepage and navigation. */
+  visible: boolean;
 }
 
 export interface Education {
   id: string;
-  institution: string;
   degree: string;
-  startDate: string;
-  endDate: string | null;
-  gpa?: string;
-  coursework: string[];
-  activities: string[];
+  institution: string;
+  campus?: string;
+  startYear: string;
+  endYear?: string;
+  /** Human-readable chronology label, such as "2023 — 2027". */
+  displayPeriod: string;
+  cgpa?: string;
+  focusAreas?: string[];
+  relevantCoursework?: string[];
+  visible: boolean;
 }
 
 export interface Certification {

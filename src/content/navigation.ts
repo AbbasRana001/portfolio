@@ -1,10 +1,11 @@
 import type { NavigationItem } from "@/types/portfolio";
+import { experiences } from "@/content/experience";
 
 // Enable each item only when its matching homepage section is implemented.
 export const navigation: NavigationItem[] = [
   { label: "Projects", href: "/#projects", enabled: true },
   { label: "Profile", href: "/#about", enabled: true },
-  { label: "Experience", href: "/#experience", enabled: false },
+  { label: "Experience", href: "/#experience", enabled: experiences.some(experience => experience.visible) },
   { label: "Lab Notes", href: "/#lab-notes", enabled: true },
   { label: "Contact", href: "/#contact", enabled: false },
 ];

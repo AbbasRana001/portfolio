@@ -1,0 +1,21 @@
+.education-section { border-top: var(--border-width) solid var(--border); }
+.education-list { margin-top: var(--space-8); padding: 0; list-style: none; border-bottom: var(--border-width) solid var(--border); }
+.education-record { display: grid; gap: var(--space-5); padding-block: var(--space-8); border-top: var(--border-width) solid var(--border); }
+.education-primary { min-width: 0; }
+.education-primary h3 { font-size: var(--text-project-title); font-weight: 400; letter-spacing: var(--tracking-heading); }
+.education-institution { margin-top: var(--space-2); font-size: var(--text-base); }
+.education-campus { margin-top: var(--space-1); color: var(--muted); font-size: var(--text-sm); }
+.education-metadata { display: flex; gap: var(--space-6); margin: 0; }
+.education-metadata div { display: grid; gap: var(--space-1); }
+.education-metadata dt { color: var(--muted); font-family: var(--font-jetbrains-mono), monospace; font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.education-metadata dd { margin: 0; font-size: var(--text-sm); }
+.education-focus { color: var(--muted); font-size: var(--text-sm); }
+.education-focus span { color: var(--foreground); }
+@media (min-width: 48rem) {
+  .education-record { grid-template-columns: minmax(0, 1fr) minmax(11rem, 14rem); column-gap: var(--space-8); align-items: start; }
+  .education-metadata { justify-content: space-between; gap: var(--space-4); }
+  .education-focus { grid-column: 1 / -1; }
+}
+@media (min-width: 64rem) {
+  .education-record { column-gap: var(--space-12); padding-block: var(--space-10); }
+}

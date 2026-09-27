@@ -1,8 +1,10 @@
 import { Hero } from "@/components/hero/hero";
 import { Projects } from "@/components/projects/projects";
 import { About } from "@/components/about/about";
+import { Education } from "@/components/education/education";
+import { Experience } from "@/components/experience/experience";
 import { LabNotes } from "@/components/research/lab-notes";
 
 export default function HomePage() {
-  return <><Hero /><Projects /><About /><LabNotes /></>;
+  return <><Hero /><Projects /><About /><LabNotes /><Experience /><Education /></>;
 }

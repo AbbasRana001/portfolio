@@ -12,8 +12,8 @@ marked placeholder copy. No personal facts have been assumed.
 | `hero.ts` | Hero CTA labels, unavailable-state explanations, social navigation labels and visualization captions |
 | `projects.ts` | Projects, tags, images, results, optional metrics and case studies |
 | `skills.ts` | Ordered skill groups and their skills |
-| `experience.ts` | Roles, organizations, dates, highlights and technologies |
-| `education.ts` | Institution, degree, dates, coursework, activities and optional GPA |
+| `experience.ts` | Roles, organizations, periods, work arrangements and structured description points |
+| `education.ts` | Degree, institution, campus, period, CGPA and optional focus or coursework |
 | `research.ts` | Lab Notes: interests, studies, experiments, papers, coursework and preprints |
 | `certifications.ts` | Earned credentials, issuer, date, verification link and image |
 | `navigation.ts` | Navigation labels, section anchors, availability and menu UI copy |
@@ -190,10 +190,14 @@ About follows Projects. Skills data remains centralized but is not currently ren
 - In `skills.ts`, add `{ name: "TODO: Actual skill", evidence: "developing", description: "TODO: Optional context" }`
   to the appropriate group's `skills` array, choosing `demonstrated` only for verified
   project work. Remove the optional description if unused. There are no percentage ratings.
-- In `experience.ts`, add `id`, `role`, `organization`, `startDate`, `endDate`,
-  `description`, `highlights` and `technologies`. Location is optional.
-- In `education.ts`, add `id`, `institution`, `degree`, `startDate`, `endDate`,
-  `coursework` and `activities`. GPA is optional; never infer it.
+- In `experience.ts`, add `id`, `role`, `organization`, `period`,
+  `descriptionBullets` and `visible`. `workArrangement` and `link` are optional.
+  Keep description points as separate strings so they remain structured in the
+  editorial list. Set `visible: false` to retain an entry in content without
+  rendering it or enabling the Experience navigation target.
+- In `education.ts`, add `id`, `degree`, `institution`, `startYear`,
+  `displayPeriod` and `visible`. Campus, end year, CGPA, focus areas and relevant
+  coursework are optional. Set `visible: false` to retain a record without rendering it.
 - In `certifications.ts`, add `id`, `name`, `issuer` and `date`. Add an actual
   `credentialUrl` and image only when available.
 - In `research.ts`, edit `labNotes` to add, remove or update a Lab Note. Each note
@@ -204,8 +208,8 @@ About follows Projects. Skills data remains centralized but is not currently ren
   implying results or completed work. An interest is not a publication: choose the
   correct `type` and status. Do not add a Paper or Preprint until it actually exists.
 
-Use stable unique IDs. Dates use `YYYY-MM`. For experience and education, `endDate:
-null` means ongoing. Keep optional lists empty when appropriate. TypeScript checks
+Use stable unique IDs. Keep periods factual and human-readable. Education years are
+stored separately from the display period. Keep optional lists empty when appropriate. TypeScript checks
 structure, but dates, factual accuracy, working links and unique slugs still need
 your review.
 
