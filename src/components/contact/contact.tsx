@@ -35,7 +35,7 @@ export function Contact() {
             {profile.resumeUrl && (
               <div className="contact-item">
                 <dt>Resume</dt>
-                <dd><a href={profile.resumeUrl}>View resume<span aria-hidden="true">→</span></a></dd>
+                <dd><a href={profile.resumeViewerUrl} aria-label="View resume (opens the resume viewer)">View resume<span aria-hidden="true">→</span></a></dd>
               </div>
             )}
           </dl>

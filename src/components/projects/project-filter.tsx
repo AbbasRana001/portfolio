@@ -1,36 +1,22 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { projectsCopy } from "@/content/projects";
 import type { ProjectCategory } from "@/types/portfolio";
 
 interface Entry { slug: string; category: ProjectCategory; featured: boolean; card: ReactNode; filteredCard: ReactNode }
-const filterTransitionDuration = 220;
-
 /** Cards are composed on the server and passed as slots, not imported by this client. */
 export function ProjectFilter({ entries }: { entries: Entry[] }) {
   const [selected, setSelected] = useState<ProjectCategory | "All">("All");
-  const [transitioning, setTransitioning] = useState(false);
-  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const categories = [...new Set(entries.map(entry => entry.category))];
   const visible = entries.filter(entry => selected === "All" || entry.category === selected);
   const featured = visible.filter(entry => entry.featured);
   const additional = visible.filter(entry => !entry.featured);
 
-  useEffect(() => () => { if (timeout.current) clearTimeout(timeout.current); }, []);
-
   function selectCategory(category: ProjectCategory | "All") {
-    if (category === selected || transitioning) return;
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setSelected(category);
-      return;
-    }
-    setTransitioning(true);
-    timeout.current = setTimeout(() => {
-      setSelected(category);
-      setTransitioning(false);
-    }, filterTransitionDuration);
+    if (category === selected) return;
+    setSelected(category);
   }
 
   return (
@@ -44,7 +30,7 @@ export function ProjectFilter({ entries }: { entries: Entry[] }) {
       </div>
       <p className="project-result-count" role="status" aria-live="polite" aria-atomic="true">{projectsCopy.resultsLabel}: {visible.length}</p>
       <div id="project-results" className="project-results">
-        <div key={selected} className={`project-result-content${transitioning ? " is-leaving" : ""}`}>
+        <div key={selected} className="project-result-content">
           {selected !== "All" && visible.length > 0 && <div className="project-filtered-list">
             {visible.map(entry => <div key={entry.slug}>{entry.filteredCard}</div>)}
           </div>}

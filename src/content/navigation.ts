@@ -6,8 +6,8 @@ import { hasVisibleContact } from "@/content/profile";
 export const navigation: NavigationItem[] = [
   { label: "Projects", href: "/#projects", enabled: true },
   { label: "Profile", href: "/#about", enabled: true },
-  { label: "Experience", href: "/#experience", enabled: experiences.some(experience => experience.visible) },
   { label: "Lab Notes", href: "/#lab-notes", enabled: true },
+  { label: "Experience", href: "/#experience", enabled: experiences.some(experience => experience.visible) },
   { label: "Contact", href: "/#contact", enabled: hasVisibleContact() },
 ];
 
@@ -19,7 +19,6 @@ export const navigationCopy = {
   close: "Close navigation",
   menu: "Navigation",
   resume: "Resume",
-  resumeUnavailable: "Resume not added yet",
   unavailable: "Coming soon",
-  note: "Projects, Profile and Lab Notes are available. Other sections are coming in the next stages.",
+  note: "Browse the selected work, profile, lab notes and professional record.",
 };

@@ -15,6 +15,7 @@
 .hero-socials a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--touch-target); text-underline-offset: var(--space-1); font-size: var(--text-sm); }
 .data-study { width: 100%; margin: 0; justify-self: stretch; overflow: hidden; }
 .study-field { display: block; width: 100%; height: auto; overflow: visible; }
+.study-pointer-field { transform: translate(var(--field-x, 0px), var(--field-y, 0px)); transition: transform 320ms var(--ease-standard); }
 .study-observations { fill: var(--foreground); }
 .study-point { transform-box: fill-box; transform-origin: center; animation: study-point-cycle 10s cubic-bezier(.4, 0, .2, 1) infinite; animation-delay: var(--delay); }
 .study-point-blue { fill: var(--accent); }
@@ -47,6 +48,7 @@
   .study-point:nth-child(n + 20) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .study-pointer-field { transition: none; }
   .study-point { animation: none; transform: translate(var(--settled-x), var(--settled-y)); }
   .study-relationship-field { animation: none; opacity: .72; }
   .study-boundary { animation: none; stroke-dashoffset: 0; opacity: 1; }

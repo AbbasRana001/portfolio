@@ -1,0 +1,12 @@
+.resume-section { padding-block: var(--space-10) var(--section-space); }
+.resume-heading-row { display: grid; gap: var(--space-6); padding-bottom: var(--space-8); border-bottom: var(--border-width) solid var(--border); }
+.resume-heading-row .type-heading { overflow-wrap: normal; white-space: nowrap; word-break: normal; }
+.resume-controls { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.resume-document-viewport { width: 100%; margin-top: var(--space-8); }
+.resume-frame { display: block; width: 100%; min-height: 72svh; border: var(--border-width) solid var(--border); background: white; }
+.resume-viewer-status { margin: 0; padding-block: var(--space-8); color: var(--muted); font-size: var(--text-sm); }
+@media (min-width: 48rem) {
+  .resume-heading-row { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .resume-controls { justify-content: end; }
+  .resume-frame { min-height: 78svh; }
+}

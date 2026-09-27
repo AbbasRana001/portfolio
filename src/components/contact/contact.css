@@ -17,6 +17,8 @@
 .contact-item a:focus-visible { color: var(--accent); }
 .contact-item a:focus-visible::after { transform: scaleX(1); }
 .contact-item a:focus-visible span { transform: translateX(var(--space-1)); }
+.contact-item a:active { color: var(--accent); }
+.contact-item a:active span { transform: translateX(var(--space-1)); }
 @media (hover: hover) and (pointer: fine) {
   .contact-item a:hover { color: var(--accent); }
   .contact-item a:hover::after { transform: scaleX(1); }

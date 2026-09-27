@@ -4,7 +4,6 @@ export const heroCopy = {
   projectsLabel: "Explore Projects",
   projectsUnavailable: "Projects section coming soon",
   resumeLabel: "View Resume",
-  resumeUnavailable: "Resume not added yet",
   socialsLabel: "Social and contact links",
   emailLabel: "Email",
   sectionLabel: "01 / INTRODUCTION",

@@ -18,7 +18,8 @@ export const profile: Profile = {
   socialLinks: [
     { label: "GitHub", platform: "github", url: "https://github.com/AbbasRana001" },
   ],
-  resumeUrl: null, // Enable only after adding public/resume/resume.pdf.
+  resumeUrl: "/documents/Abbas-Rana-Resume.pdf",
+  resumeViewerUrl: "/resume",
   currentlyLearning: [],
   quickFacts: [],
   statistics: [], // Real values only. showStats defaults to false.

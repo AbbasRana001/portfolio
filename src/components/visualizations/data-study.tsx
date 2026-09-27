@@ -1,4 +1,6 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useRef, type CSSProperties, type PointerEvent } from "react";
 import { heroCopy } from "@/content/hero";
 
 type Observation = {
@@ -38,12 +40,35 @@ function pointStyle(point: Observation, index: number): CSSProperties {
 /** Editorial SVG study of observations resolving into learned structure. */
 export function DataStudy() {
   const copy = heroCopy.visualization;
+  const fieldRef = useRef<SVGGElement>(null);
+
+  function canRespondToPointer(event: PointerEvent<SVGSVGElement>) {
+    return event.pointerType === "mouse" &&
+      matchMedia("(hover: hover) and (pointer: fine)").matches &&
+      !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function updatePointerField(event: PointerEvent<SVGSVGElement>) {
+    if (!canRespondToPointer(event) || !fieldRef.current) return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 8;
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 8;
+    fieldRef.current.style.setProperty("--field-x", `${x.toFixed(2)}px`);
+    fieldRef.current.style.setProperty("--field-y", `${y.toFixed(2)}px`);
+  }
+
+  function resetPointerField() {
+    fieldRef.current?.style.removeProperty("--field-x");
+    fieldRef.current?.style.removeProperty("--field-y");
+  }
 
   return <figure className="data-study">
-    <svg className="study-field" viewBox="0 0 640 430" role="img" aria-labelledby="study-title study-description">
+    <svg className="study-field" viewBox="0 0 640 430" role="img" aria-labelledby="study-title study-description"
+      onPointerMove={updatePointerField} onPointerLeave={resetPointerField}>
       <title id="study-title">{copy.title}</title>
       <desc id="study-description">{copy.description}</desc>
-      <g className="study-relationship-field" aria-hidden="true">
+      <g ref={fieldRef} className="study-pointer-field" aria-hidden="true">
+      <g className="study-relationship-field">
         <path d="M156 222 181 177 214 212 238 164 273 197 304 159" />
         <path d="M326 222 357 185 391 214 421 169 454 202 488 151" />
       </g>
@@ -55,6 +80,7 @@ export function DataStudy() {
       <g className="study-regions" aria-hidden="true">
         <path d="M123 209c21-53 92-68 139-22 34 34 21 92-32 111-57 21-123-27-107-89Z" />
         <path d="M360 177c45-55 157-45 218 29 35 44-11 107-99 99-83-8-142-75-119-128Z" />
+      </g>
       </g>
     </svg>
   </figure>;

@@ -36,9 +36,7 @@
 .project-additional > .eyebrow { margin-bottom: var(--space-5); }
 .projects-empty p { margin-top: var(--space-3); max-width: var(--text-width); }
 .project-result-content { animation: project-filter-in var(--duration-transform) var(--ease-standard); }
-.project-result-content.is-leaving { animation: project-filter-out 220ms var(--ease-standard) forwards; pointer-events: none; }
 @keyframes project-filter-in { from { opacity: 0; transform: translateY(var(--space-2)); } to { opacity: 1; transform: translateY(0); } }
-@keyframes project-filter-out { to { opacity: 0; transform: translateY(calc(-1 * var(--space-2))); } }
 @media (min-width: 48rem) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) {
   .project-card-featured .project-card-surface { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }

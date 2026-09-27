@@ -42,6 +42,8 @@ export interface Profile {
   githubUsername: string | null;
   socialLinks: SocialLink[];
   resumeUrl: AssetPath | ExternalUrl | null;
+  /** In-site viewer used by normal portfolio Resume actions. */
+  resumeViewerUrl: AssetPath;
   portrait?: ContentImage;
   currentlyLearning: string[];
   quickFacts: { label: string; value: string }[];

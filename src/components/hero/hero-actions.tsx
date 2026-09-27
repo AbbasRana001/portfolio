@@ -16,14 +16,10 @@ export function HeroActions() {
         )}
         {!projectsAvailable && <p id="hero-projects-status" className="hero-action-status">{heroCopy.projectsUnavailable}</p>}
       </div>
-      <div className="hero-action">
-        {profile.resumeUrl ? (
-          <ButtonLink href={profile.resumeUrl} variant="secondary">{heroCopy.resumeLabel}<span aria-hidden="true">↗</span></ButtonLink>
-        ) : (
-          <Button variant="secondary" disabled aria-describedby="hero-resume-status">{heroCopy.resumeLabel}<span aria-hidden="true">↗</span></Button>
-        )}
-        {!profile.resumeUrl && <p id="hero-resume-status" className="hero-action-status">{heroCopy.resumeUnavailable}</p>}
-      </div>
+      {profile.resumeUrl && <div className="hero-action">
+        <ButtonLink href={profile.resumeViewerUrl} variant="secondary"
+          aria-label={`${heroCopy.resumeLabel} (opens the resume viewer)`}>{heroCopy.resumeLabel}<span aria-hidden="true">↗</span></ButtonLink>
+      </div>}
     </div>
   );
 }

@@ -12,13 +12,10 @@ import { profile } from "@/content/profile";
 import { useNavigationState } from "@/hooks/use-navigation-state";
 
 function ResumeLink({ onNavigate }: { onNavigate?: () => void }) {
-  return profile.resumeUrl ? (
-    <ButtonLink href={profile.resumeUrl} variant="secondary" onClick={onNavigate}>{navigationCopy.resume}<span aria-hidden="true">↗</span></ButtonLink>
-  ) : (
-    <Button variant="secondary" disabled title={navigationCopy.resumeUnavailable} aria-label={navigationCopy.resumeUnavailable}>
-      {navigationCopy.resume}<span aria-hidden="true">↗</span>
-    </Button>
-  );
+  if (!profile.resumeUrl) return null;
+
+  return <ButtonLink href={profile.resumeViewerUrl} variant="secondary" onClick={onNavigate}
+    aria-label={`${navigationCopy.resume} (opens the resume viewer)`}>{navigationCopy.resume}<span aria-hidden="true">↗</span></ButtonLink>;
 }
 
 export function SiteNavigation() {
