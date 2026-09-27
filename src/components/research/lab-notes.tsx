@@ -5,7 +5,7 @@ import type { ResearchItem } from "@/types/portfolio";
 import "./lab-notes.css";
 
 function LabNote({ note }: { note: ResearchItem }) {
-  return <article className="lab-note" tabIndex={0} aria-labelledby={`lab-note-${note.id}`}>
+  return <article className="lab-note" aria-labelledby={`lab-note-${note.id}`}>
     <div className="lab-note-meta-row">
       <p className="lab-note-identifier">{note.identifier}</p>
       <p className="lab-note-status"><span>{labNotesCopy.status}</span>{note.status}</p>
