@@ -43,13 +43,9 @@ export function DataStudy() {
     <svg className="study-field" viewBox="0 0 640 430" role="img" aria-labelledby="study-title study-description">
       <title id="study-title">{copy.title}</title>
       <desc id="study-description">{copy.description}</desc>
-      <g className="study-grid-fragments" aria-hidden="true">
-        <path d="M31 92h92M31 112h54M472 334h118M530 314h60M94 397v-62M114 397v-38M548 109V43M570 76V43" />
-      </g>
       <g className="study-relationship-field" aria-hidden="true">
         <path d="M156 222 181 177 214 212 238 164 273 197 304 159" />
         <path d="M326 222 357 185 391 214 421 169 454 202 488 151" />
-        <path d="M174 254 204 227 233 246M397 244 429 216 460 234" />
       </g>
       <path className="study-boundary study-boundary-soft" aria-hidden="true" d="M69 304C149 241 209 272 279 241s111-101 198-78 84 77 121 31" />
       <path className="study-boundary" aria-hidden="true" d="M62 326C143 258 208 291 281 255s111-105 197-80 86 81 125 28" />
