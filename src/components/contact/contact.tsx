@@ -5,9 +5,7 @@ import "./contact.css";
 export function Contact() {
   if (!hasVisibleContact()) return null;
 
-  const socialLinks = profile.socialLinks.filter(
-    link => link.url.trim() && (link.platform === "github" || link.platform === "linkedin"),
-  );
+  const socialLinks = profile.socialLinks.filter(link => link.url.trim());
   const contactMethodCount = Number(Boolean(profile.email)) + socialLinks.length + Number(Boolean(profile.resumeUrl));
   const hasContactMethods = contactMethodCount > 0;
 
@@ -29,8 +27,8 @@ export function Contact() {
               </div>
             )}
             {socialLinks.map(link => (
-              <div key={link.platform} className="contact-item">
-                <dt>{link.platform === "github" ? "GitHub" : "LinkedIn"}</dt>
+              <div key={link.url} className="contact-item">
+                <dt>{link.label}</dt>
                 <dd><a href={link.url}>{link.label}<span aria-hidden="true">→</span></a></dd>
               </div>
             ))}
