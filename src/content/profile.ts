@@ -1,23 +1,22 @@
 import type { Profile } from "@/types/portfolio";
 
 export const profile: Profile = {
-  name: "TODO: Add your name",
+  name: "",
   initials: "TODO",
-  eyebrow: "AI • MACHINE LEARNING • DATA SCIENCE",
+  eyebrow: "AI · MACHINE LEARNING · DATA SCIENCE",
   // TODO: Replace this explicitly marked sample headline with your own words.
   headline: "I build intelligent systems\nfrom data to deployment.",
-  heroIsPlaceholder: true,
-  shortBio: "Placeholder introduction: add your focus in artificial intelligence, machine learning and data science.",
-  // TODO: Review this draft before removing its visible placeholder indicator.
+  heroIsPlaceholder: false,
+  shortBio: "Computer Science student working toward machine learning, data science and applied AI through analytical projects, model-focused study and production software systems.",
   biography: [
-    "I'm building toward work in AI, machine learning and data science. My projects so far explore property prices, call-center performance and the engineering behind a deployed API.",
-    "That gives me a starting point in working with data and taking software through testing and deployment. The next part of this story is still taking shape.",
+    "My work currently sits across data analysis, machine learning foundations and software systems. I use projects to move from understanding data and patterns to building software that can support real applications.",
+    "I am now focusing more deeply on machine learning, artificial intelligence and data science, with an emphasis on building stronger technical and research foundations.",
   ],
-  aboutIsPlaceholder: true,
+  aboutIsPlaceholder: false,
   email: null, // TODO: Add your real email address.
   githubUsername: null,
   socialLinks: [
-    { label: "github.com/AbbasRana001", platform: "github", url: "https://github.com/AbbasRana001" },
+    { label: "GitHub", platform: "github", url: "https://github.com/AbbasRana001" },
   ],
   resumeUrl: null, // Enable only after adding public/resume/resume.pdf.
   currentlyLearning: [],
