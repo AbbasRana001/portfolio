@@ -186,7 +186,8 @@
     height: var(--border-width);
     transform-origin: left;
     background: var(--accent);
-    transition: transform var(--duration-fast) linear;
+    will-change: transform;
+    transition: transform 120ms linear;
   }
   .navigation-bar {
     display: flex;
@@ -237,21 +238,26 @@
     padding: var(--space-2) var(--space-3);
     color: var(--muted);
     font-size: var(--text-sm);
-    border-radius: var(--radius-sm);
     text-decoration: none;
-    transition: color var(--duration-fast), background var(--duration-fast);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+  .navigation-link::after {
+    position: absolute;
+    right: var(--space-3);
+    bottom: var(--space-1);
+    left: var(--space-3);
+    height: var(--border-width);
+    content: "";
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-normal) var(--ease-standard);
   }
   .navigation-link[aria-current] {
     color: var(--accent);
-    background: transparent;
   }
   .navigation-link[aria-current]::after {
-    content: "";
-    position: absolute;
-    bottom: var(--space-1);
-    inset-inline: var(--space-3);
-    height: var(--border-width);
-    background: var(--accent);
+    transform: scaleX(1);
   }
   .navigation-link[aria-disabled] {
     cursor: not-allowed;
@@ -274,6 +280,14 @@
   .menu-icon span {
     height: var(--border-width);
     background: var(--foreground);
+    transform-origin: center;
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  .menu-toggle[data-open="true"] .menu-icon span:first-child {
+    transform: translateY(calc(var(--space-1) + 1px)) rotate(45deg);
+  }
+  .menu-toggle[data-open="true"] .menu-icon span:last-child {
+    transform: translateY(calc(-1 * (var(--space-1) + 1px))) rotate(-45deg);
   }
   .mobile-dialog {
     position: fixed;
@@ -358,9 +372,14 @@
       background: var(--surface-hover);
       border-color: var(--border-strong);
     }
-    a.navigation-link:hover {
-      color: var(--foreground);
-      background: var(--surface-hover);
+    a.navigation-link:hover, a.navigation-link:focus-visible {
+      color: var(--accent);
+    }
+    a.navigation-link:hover::after, a.navigation-link:focus-visible::after {
+      transform: scaleX(.58);
+    }
+    a.navigation-link[aria-current]:hover::after, a.navigation-link[aria-current]:focus-visible::after {
+      transform: scaleX(1);
     }
     .brand:hover .brand-mark {
       color: var(--foreground);

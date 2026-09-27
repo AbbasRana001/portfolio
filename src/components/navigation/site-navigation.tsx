@@ -82,7 +82,7 @@ export function SiteNavigation() {
           <NavigationItems activeHref={activeHref} />
           <ResumeLink />
         </nav>
-        <button ref={triggerRef} type="button" className="menu-toggle" aria-label={navigationCopy.open}
+        <button ref={triggerRef} type="button" className="menu-toggle" data-open={open} aria-label={open ? navigationCopy.close : navigationCopy.open}
           aria-expanded={open} aria-controls="mobile-navigation" aria-haspopup="dialog"
           onClick={() => { dialogRef.current?.showModal(); setOpen(true); }}>
           <span aria-hidden="true" className="menu-icon"><span /><span /></span>
