@@ -6,6 +6,7 @@ import { projectsCopy } from "@/content/projects";
 import type { ProjectCategory } from "@/types/portfolio";
 
 interface Entry { slug: string; category: ProjectCategory; featured: boolean; card: ReactNode; filteredCard: ReactNode }
+const filterTransitionDuration = 220;
 
 /** Cards are composed on the server and passed as slots, not imported by this client. */
 export function ProjectFilter({ entries }: { entries: Entry[] }) {
@@ -29,7 +30,7 @@ export function ProjectFilter({ entries }: { entries: Entry[] }) {
     timeout.current = setTimeout(() => {
       setSelected(category);
       setTransitioning(false);
-    }, 140);
+    }, filterTransitionDuration);
   }
 
   return (

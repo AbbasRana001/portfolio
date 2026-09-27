@@ -36,7 +36,7 @@
 .project-additional > .eyebrow { margin-bottom: var(--space-5); }
 .projects-empty p { margin-top: var(--space-3); max-width: var(--text-width); }
 .project-result-content { animation: project-filter-in var(--duration-transform) var(--ease-standard); }
-.project-result-content.is-leaving { animation: project-filter-out 140ms var(--ease-standard) forwards; pointer-events: none; }
+.project-result-content.is-leaving { animation: project-filter-out 220ms var(--ease-standard) forwards; pointer-events: none; }
 @keyframes project-filter-in { from { opacity: 0; transform: translateY(var(--space-2)); } to { opacity: 1; transform: translateY(0); } }
 @keyframes project-filter-out { to { opacity: 0; transform: translateY(calc(-1 * var(--space-2))); } }
 @media (min-width: 48rem) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -46,7 +46,10 @@
   .project-card-featured .project-card-content { padding: var(--space-8); }
   .project-card-reverse .project-media { order: 2; border-right: 0; border-left: var(--border-width) solid var(--border); }
 }
-@media (prefers-reduced-motion: reduce) { .project-result-content { animation: none; } .project-media img, .project-media-fallback svg, .project-title { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .project-result-content, .project-result-content.is-leaving { animation: none; }
+  .project-media img, .project-media-fallback svg, .project-title, .project-links .button, .project-filters .button { transition: none; }
+}
 
 /* Category views use the same presentation regardless of editorial prominence. */
 .project-filtered-list {
@@ -83,21 +86,23 @@
 .project-card-content { padding: var(--space-6) 0 0; }
 .project-title { font-weight: 400; }
 .project-description { font-size: var(--text-base); max-width: var(--text-width); }
-.project-media { border: 0; align-self: start; }
-.project-card { transition: border-color var(--duration-fast) var(--ease-standard); }
-.project-media img, .project-media-fallback svg { transition: transform var(--duration-transform) var(--ease-standard); }
-.project-title { transition: color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard); }
-.project-links .button { background-image: linear-gradient(var(--accent), var(--accent)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0 1px; transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), background-size var(--duration-transform) var(--ease-standard); }
-.project-card:is(:hover, :focus-within) { border-color: var(--accent); }
-.project-card:is(:hover, :focus-within) .project-media img, .project-card:is(:hover, :focus-within) .project-media-fallback svg { transform: scale(1.02); }
-.project-card:is(:hover, :focus-within) .project-title { color: var(--accent); transform: translateX(var(--space-1)); }
-.project-links .button:is(:hover, :focus-visible) { background-size: 100% 1px; }
+.project-media { border: 0; align-self: start; overflow: hidden; }
+.project-card { transition: border-color var(--duration-normal) var(--ease-standard); }
+.project-media img, .project-media-fallback svg { transition: transform var(--duration-normal) var(--ease-standard); }
+.project-title { transition: color var(--duration-normal) var(--ease-standard), transform var(--duration-normal) var(--ease-standard); }
+.project-links .button { background-image: linear-gradient(var(--accent), var(--accent)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0 1px; transition: color var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard), background-size var(--duration-normal) var(--ease-standard); }
+.project-card:focus-within { border-color: var(--accent); }
+.project-card:focus-within .project-media img, .project-card:focus-within .project-media-fallback svg { transform: translateY(calc(-1 * var(--space-1))) scale(1.02); }
+.project-card:focus-within .project-title { color: var(--accent); transform: translateX(var(--space-1)); }
+.project-card-featured:focus-within .project-media img, .project-card-featured:focus-within .project-media-fallback svg { transform: translateY(calc(-1 * var(--space-1))) scale(1.025); }
+.project-card-featured:focus-within .project-metrics strong { color: var(--accent-hover); }
+.project-links .button:focus-visible { background-size: 100% 1px; color: var(--accent); border-color: var(--accent); }
 .project-tags { column-gap: var(--space-4); row-gap: var(--space-2); }
 .project-tags .badge { padding: 0; border: 0; border-radius: 0; font-family: var(--font-jetbrains-mono), monospace; }
 .project-links .button { border: 0; border-bottom: var(--border-width) solid var(--foreground); padding-inline: 0; border-radius: 0; background: transparent; }
 .project-links .button:hover { color: var(--accent); border-color: var(--accent); background: transparent; }
 .project-filters { gap: var(--space-2) var(--space-5); border-bottom: var(--border-width) solid var(--border); }
-.project-filters .button { border: 0; border-bottom: var(--focus-width) solid transparent; background: transparent; padding-inline: 0; border-radius: 0; }
+.project-filters .button { border: 0; border-bottom: var(--focus-width) solid transparent; background: transparent; padding-inline: 0; border-radius: 0; transition: color var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard); }
 .project-filters [aria-pressed="true"] { border-bottom-color: var(--accent); background: transparent; }
 .project-metrics { border: 0; padding-block: var(--space-2); }
 .project-metrics strong { font-size: var(--text-project-title); }
@@ -117,4 +122,12 @@
   .project-card-featured .project-card-surface { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--space-10); align-items: start; }
   .project-card-featured .project-card-content { padding: 0; }
   .project-card-featured .project-media, .project-card-reverse .project-media { border: 0; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover { border-color: var(--accent); }
+  .project-card:hover .project-media img, .project-card:hover .project-media-fallback svg { transform: translateY(calc(-1 * var(--space-1))) scale(1.02); }
+  .project-card:hover .project-title { color: var(--accent); transform: translateX(var(--space-1)); }
+  .project-card-featured:hover .project-media img, .project-card-featured:hover .project-media-fallback svg { transform: translateY(calc(-1 * var(--space-1))) scale(1.025); }
+  .project-card-featured:hover .project-metrics strong { color: var(--accent-hover); }
+  .project-links .button:hover { background-size: 100% 1px; }
 }
