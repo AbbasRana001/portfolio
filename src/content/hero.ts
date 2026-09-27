@@ -9,16 +9,7 @@ export const heroCopy = {
   emailLabel: "Email",
   sectionLabel: "01 / INTRODUCTION",
   visualization: {
-    title: "Data, under a different lens.",
-    description: "Illustrative scatter marks and a feature projection. A conceptual study of how patterns emerge when data is transformed, not a measured dataset or project result.",
-    caption: "Illustrative study / not measured data",
-    index: "FIG. 01 / FEATURE SPACE",
-    input: "OBSERVATIONS",
-    output: "PROJECTION",
-    axisX: "FEATURE X",
-    axisY: "FEATURE Y",
-    raw: "Raw data",
-    features: "Features",
-    model: "Model",
+    title: "Latent-space transformation.",
+    description: "An illustrative field of observations resolving into irregular learned regions around a fitted boundary. It does not represent a measured dataset or project result.",
   },
 };

@@ -71,10 +71,11 @@ are rendered as text links. Set `profile.email` to enable Email. Missing social 
 produce no link or empty social row. `githubUsername` alone does not create a link.
 Links use the same tab, so there is no unexpected new-window behavior.
 
-Edit the numbered introduction label and analytical illustration captions in
-`hero.ts`. The plotted marks are illustrative geometry, not a measured dataset.
-`DataStudy` is a server-rendered SVG with a brief CSS reveal and a static
-reduced-motion presentation. No metrics are inferred from the illustration.
+Edit the numbered introduction label and the Hero visual caption in `hero.ts`.
+The visual is illustrative geometry, not a measured dataset. `DataStudy` is an
+animated SVG field showing raw observations resolving into relationships and learned
+structure. It has no visual caption or metrics; no data is inferred from the
+illustration.
 
 ## Add a project
 
@@ -279,10 +280,11 @@ data remains in `skills.ts` without a homepage anchor or presentation component.
 Lab Notes is the dark, research-journal insert after Profile and uses the
 `#lab-notes` anchor. Its editable note data and UI copy live in `research.ts`.
 
-Hero layout and data-study SVG styles live in `components/hero/hero.css`.
-The composition splits from 896px. The illustration is a Server Component, with
-one 900ms line/point reveal and no continuous motion or pause control. Reduced motion
-removes this animation. Navigation retains its 1024px breakpoint and native dialog.
+Hero layout and visual SVG styles live in `components/hero/hero.css`.
+The composition splits from 896px. The visualization is a dependency-free SVG with
+a ten-second observations-to-structure loop. It lowers its height on mobile and
+settles on a static structured frame when reduced motion is requested. Navigation
+retains its 1024px breakpoint and native dialog.
 Project covers are unchanged and can be replaced through each project's `cover`
 object without changing its layout. The data model and filtering logic are intact.
 
