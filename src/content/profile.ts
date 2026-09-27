@@ -16,14 +16,29 @@ export const profile: Profile = {
   aboutIsPlaceholder: true,
   email: null, // TODO: Add your real email address.
   githubUsername: null,
-  socialLinks: [], // TODO: Add verified GitHub / LinkedIn URLs.
+  socialLinks: [
+    { label: "github.com/AbbasRana001", platform: "github", url: "https://github.com/AbbasRana001" },
+  ],
   resumeUrl: null, // Enable only after adding public/resume/resume.pdf.
   currentlyLearning: [],
   quickFacts: [],
   statistics: [], // Real values only. showStats defaults to false.
-  contactHeading: "TODO: Add your contact heading",
-  contactDescription: "TODO: Describe the opportunities you welcome.",
+  contactVisible: true,
+  contactHeading: "Let's connect.",
+  contactDescription: "Open to relevant opportunities, collaboration, research, or discussion.",
 };
+
+/** Contact copy is meaningful on its own; supplied destinations add the contact index. */
+export function hasVisibleContact() {
+  return profile.contactVisible && Boolean(
+    profile.contactHeading?.trim()
+    || profile.contactDescription?.trim()
+    || profile.contactAvailability?.trim()
+    || profile.email
+    || profile.socialLinks.some(link => link.url.trim())
+    || profile.resumeUrl,
+  );
+}
 
 export const aboutCopy = {
   eyebrow: "03 / PROFILE",

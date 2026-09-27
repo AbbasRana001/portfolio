@@ -1,5 +1,6 @@
 import type { NavigationItem } from "@/types/portfolio";
 import { experiences } from "@/content/experience";
+import { hasVisibleContact } from "@/content/profile";
 
 // Enable each item only when its matching homepage section is implemented.
 export const navigation: NavigationItem[] = [
@@ -7,7 +8,7 @@ export const navigation: NavigationItem[] = [
   { label: "Profile", href: "/#about", enabled: true },
   { label: "Experience", href: "/#experience", enabled: experiences.some(experience => experience.visible) },
   { label: "Lab Notes", href: "/#lab-notes", enabled: true },
-  { label: "Contact", href: "/#contact", enabled: false },
+  { label: "Contact", href: "/#contact", enabled: hasVisibleContact() },
 ];
 
 export const navigationCopy = {

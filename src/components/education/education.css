@@ -1,4 +1,5 @@
 .education-section { border-top: var(--border-width) solid var(--border); }
+.education-section:has(+ .contact-section) { padding-bottom: clamp(2rem, 4vw, 3rem); }
 .education-list { margin-top: var(--space-8); padding: 0; list-style: none; border-bottom: var(--border-width) solid var(--border); }
 .education-record { display: grid; gap: var(--space-5); padding-block: var(--space-8); border-top: var(--border-width) solid var(--border); }
 .education-primary { min-width: 0; }

@@ -47,6 +47,11 @@ Place your PDF at `public/resume/resume.pdf`, then set `resumeUrl` to
 `"/resume/resume.pdf"`. Keep it `null` until the file exists. Assets in `public/` are
 addressed from `/`, never with `/public/` in their URL.
 
+The Contact chapter also reads `contactVisible`, `contactHeading`,
+`contactDescription` and optional `contactAvailability` from `profile.ts`. It reuses
+the same `email`, GitHub/LinkedIn `socialLinks`, and `resumeUrl` values; do not add
+those destinations in a second content file. Missing destinations remain hidden.
+
 ## Personalize the Hero
 
 Edit `eyebrow`, `headline` and `shortBio` in `profile.ts`. A `\n` in `headline`

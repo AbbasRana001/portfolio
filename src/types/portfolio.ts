@@ -46,8 +46,11 @@ export interface Profile {
   currentlyLearning: string[];
   quickFacts: { label: string; value: string }[];
   statistics: Statistic[];
+  /** Controls whether the lower-page Contact chapter is rendered. */
+  contactVisible: boolean;
   contactHeading: string;
-  contactDescription: string;
+  contactDescription?: string;
+  contactAvailability?: string;
 }
 
 export interface ProjectMetric {
