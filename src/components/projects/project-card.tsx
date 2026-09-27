@@ -6,7 +6,7 @@ import type { Project } from "@/types/portfolio";
 import { ProjectMedia } from "./project-media";
 import { ProjectMetrics } from "./project-metrics";
 
-export function ProjectCard({ project, reverse = false, variant = "editorial" }: { project: Project; reverse?: boolean; variant?: "editorial" | "filtered" }) {
+export function ProjectCard({ project, reverse = false, variant = "editorial" }: { project: Project; reverse?: boolean; variant?: "editorial" | "filtered" | "archive" }) {
   const featuredLayout = variant === "editorial" && project.featured;
   const links = [
     { label: projectsCopy.caseStudy, href: project.caseStudyUrl },
@@ -17,7 +17,7 @@ export function ProjectCard({ project, reverse = false, variant = "editorial" }:
   const tags = (project.homepageTags ?? project.tags).slice(0, projectsConfig.homepageTagLimit);
   const keyMetric = project.metrics?.filter(metric => metric.label.trim() && metric.value.trim()).slice(0, 1);
 
-  return <article aria-labelledby={`project-${project.slug}`} className={`project-card ${featuredLayout ? "project-card-featured" : ""} ${featuredLayout && reverse ? "project-card-reverse" : ""} ${variant === "filtered" ? "project-card-filtered" : ""}`}>
+  return <article aria-labelledby={`project-${project.slug}`} className={`project-card ${featuredLayout ? "project-card-featured" : ""} ${featuredLayout && reverse ? "project-card-reverse" : ""} ${variant === "filtered" ? "project-card-filtered" : ""} ${variant === "archive" ? "project-card-archive" : ""}`}>
     <Surface className="project-card-surface">
       <ProjectMedia project={project} />
       <div className="project-card-content">

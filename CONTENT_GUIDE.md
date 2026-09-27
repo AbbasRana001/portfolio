@@ -90,14 +90,21 @@ Edit an existing object in `projects.ts`, or add an object inside the array:
   category: "Data Science",
   tags: [],
   featured: false,
+  showOnHome: false,
+  visible: false,
+  order: 99,
   status: "draft",
 }
 ```
 
 Use a unique lowercase hyphenated slug. Choose a category from the `ProjectCategory`
-union. Add only technologies you used. Set `featured: true` for projects you want to
-highlight. Change `status` to `"published"` only when the content is factual and ready.
-Homepage lists and filters exclude drafts. Future sitemap entries and routes must too.
+union. Add only technologies you used. Set `featured: true` for the one project that
+receives the prominent homepage treatment, `showOnHome: true` for curated homepage
+selection, and `visible: true` to include a published project in the public archive.
+Set `order` to its intended ascending position. Change `status` to `"published"` only
+when the content is factual and ready. The homepage selects at most six ordered
+`showOnHome` projects; `/projects` lists every ordered, visible published project.
+Drafts and projects with `visible: false` are excluded from public lists and routes.
 
 Mexico Real Estate Price Analysis is featured; Call Center Performance Analysis and
 FastAPI Task Manager appear in the smaller grid. Edit their summaries, tags, category,

@@ -17,6 +17,9 @@ export const projects: Project[] = [
     description: "Exploratory analysis of size, location and residential property prices in Mexico.",
     category: "Data Science",
     featured: true,
+    showOnHome: true,
+    visible: true,
+    order: 1,
     status: "published",
     github: "https://github.com/AbbasRana001/Mexico-Real-Estate-Price-Analysis",
     problem: "Determine whether Mexican residential property prices are better explained by property size or geographic location.",
@@ -40,6 +43,9 @@ export const projects: Project[] = [
     description: "An interactive Excel dashboard for exploring call-center activity and representative performance.",
     category: "Data Analytics",
     featured: false,
+    showOnHome: true,
+    visible: true,
+    order: 2,
     status: "published",
     github: "https://github.com/AbbasRana001/call-center-analysis",
     problem: "Analyze call-center activity, customer satisfaction, purchase behavior, and representative performance.",
@@ -62,6 +68,9 @@ export const projects: Project[] = [
     description: "A supporting engineering project combining a task-management API with testing, containerization, security scanning and deployment.",
     category: "Systems",
     featured: false,
+    showOnHome: true,
+    visible: true,
+    order: 3,
     status: "published",
     github: "https://github.com/AbbasRana001/fastapi-task-manager",
     problem: "Build a small task-management API with a production-style testing, containerization, security, and deployment workflow.",
@@ -74,8 +83,24 @@ export const projects: Project[] = [
 export const projectsConfig = {
   // Drafts stay hidden; keep optional layout placeholders off for real content.
   showPlaceholders: false,
+  // The homepage remains a curated selection even as the archive grows.
+  homepageProjectLimit: 6,
   homepageTagLimit: 4,
 };
+
+function isPublicProject(project: Project) {
+  return project.visible && (project.status === "published" || (project.status === "placeholder" && projectsConfig.showPlaceholders));
+}
+
+/** Complete, ordered source for the public archive. */
+export function getVisibleProjects() {
+  return projects.filter(isPublicProject).toSorted((left, right) => left.order - right.order);
+}
+
+/** Curated, ordered source for the homepage; the archive remains unbounded. */
+export function getHomepageProjects() {
+  return getVisibleProjects().filter(project => project.showOnHome).slice(0, projectsConfig.homepageProjectLimit);
+}
 
 export const projectsCopy = {
   eyebrow: "02 / SELECTED WORK",
@@ -85,6 +110,9 @@ export const projectsCopy = {
   placeholder: "Placeholder / not real work",
   featured: "Featured case study",
   additional: "More projects",
+  viewAll: "View all projects",
+  archiveHeading: "Projects",
+  archiveFilterLabel: "Filter the project archive by category",
   filterLabel: "Filter projects by category",
   all: "All",
   resultsLabel: "Entries shown",

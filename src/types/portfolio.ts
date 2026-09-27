@@ -86,7 +86,14 @@ export interface Project {
   description: string;
   category: ProjectCategory;
   tags: string[];
+  /** A single selected project may receive the prominent homepage treatment. */
   featured: boolean;
+  /** Controls whether a published project is included in the curated homepage selection. */
+  showOnHome: boolean;
+  /** Controls whether a published project is available in the public archive. */
+  visible: boolean;
+  /** Lower values are shown first in both the archive and homepage selection. */
+  order: number;
   /** Draft entries must be excluded from public lists and routes. */
   status: "draft" | "published" | "placeholder";
   problem?: string;
