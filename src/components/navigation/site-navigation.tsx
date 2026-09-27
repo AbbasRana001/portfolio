@@ -57,7 +57,7 @@ export function SiteNavigation() {
     body.style.position = "fixed";
     body.style.top = `-${y}px`;
     body.style.width = "100%";
-    const desktop = matchMedia("(min-width: 70rem)");
+    const desktop = matchMedia("(min-width: 62rem)");
     const onResize = () => { if (desktop.matches) closeMenu(); };
     desktop.addEventListener("change", onResize);
     return () => {

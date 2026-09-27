@@ -386,7 +386,7 @@
     }
   }
 /* Keep in sync with SiteNavigation's matchMedia. */
-  @media (min-width: 70rem) {
+  @media (min-width: 62rem) {
     .desktop-navigation {
       display: flex;
     }
