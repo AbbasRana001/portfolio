@@ -104,11 +104,13 @@ columns from 768px. Images use Next.js Image with intrinsic dimensions and conta
 fitting to preserve screenshots. No extra dependencies are required. Configure
 content and placeholder visibility in `src/content/projects.ts`.
 
-Use a Node-compatible Next.js host: install with `npm ci`, build with `npm run build`,
-and serve with `npm start` (the host may set `PORT`). Managed Next.js platforms can
-use their standard framework preset. No environment variables or secrets are needed
-for Stage 1. Deployment has not been performed.
+Use a Node-compatible Next.js host: install with `npm ci`, configure
+`NEXT_PUBLIC_SITE_URL` with the real HTTPS production origin (see `.env.example`),
+build with `npm run build`, and serve with `npm start` (the host may set `PORT`).
+Vercel can use its standard Next.js preset; add the same environment variable in the
+project settings before deploying. The app serves its static assets directly and uses
+the Node runtime only for the in-site Resume data route.
 
-Before public launch, replace TODO content, add actual assets, finish the planned
-pages, configure the real site URL and SEO, and then enable indexing. The foundation
-deliberately emits `noindex, nofollow` metadata until it is ready.
+Before public launch, add a real Open Graph image under `public/images/og/`, configure
+it in `src/content/site.ts`, and supply a custom favicon. Do not commit a production
+`.env` file; the example value is documentation only.

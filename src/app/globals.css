@@ -235,7 +235,6 @@
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-1);
     min-height: var(--touch-target);
     text-decoration: none;
     flex-shrink: 0;
@@ -249,21 +248,6 @@
     line-height: 1;
     transition: color var(--duration-interaction) var(--ease-standard);
     white-space: nowrap;
-  }
-  .brand-label {
-    display: inline-flex;
-    align-items: center;
-    color: var(--muted);
-    font-family: var(--font-jetbrains-mono), Consolas, monospace;
-    font-size: var(--text-xs);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .brand-label::before {
-    margin-right: var(--space-1);
-    color: var(--accent);
-    content: "·";
   }
   .desktop-navigation {
     display: none;

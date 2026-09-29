@@ -73,7 +73,6 @@ export function SiteNavigation() {
       <Container className="navigation-bar">
         <Link className="brand" href="/#introduction" aria-label={navigationCopy.home}>
           <span className="brand-mark">{profile.initials}</span>
-          <span className="brand-label">{navigationCopy.brandLabel}</span>
         </Link>
         <nav className="desktop-navigation" aria-label={navigationCopy.label}>
           <NavigationItems activeHref={activeHref} />

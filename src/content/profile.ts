@@ -2,7 +2,7 @@ import type { Profile } from "@/types/portfolio";
 
 export const profile: Profile = {
   name: "",
-  initials: "Abbas Rana",
+  initials: "Muhammad Abbas Rana",
   eyebrow: "AI · MACHINE LEARNING · DATA SCIENCE",
   // TODO: Replace this explicitly marked sample headline with your own words.
   headline: "I build intelligent systems\nfrom data to deployment.",
