@@ -211,7 +211,7 @@
     border-bottom-color: var(--border);
     box-shadow: var(--shadow-header);
   }
-  .button:active:not(:disabled), .menu-toggle:active, .brand:active .brand-mark {
+  .button:active:not(:disabled), .brand:active .brand-mark {
     transform: translateY(1px);
   }
   .reading-progress {
@@ -312,12 +312,14 @@
     display: grid;
     gap: var(--space-2);
     width: var(--space-5);
+    transform-origin: center;
+    transition: transform var(--duration-fast) var(--ease-standard);
   }
   .menu-icon span {
     height: var(--border-width);
     background: var(--foreground);
     transform-origin: center;
-    transition: transform var(--duration-fast) var(--ease-standard);
+    transition: transform var(--duration-fast) var(--ease-standard), background var(--duration-fast) var(--ease-standard);
   }
   .navigation-link:active { color: var(--accent); }
   .menu-toggle[data-open="true"] .menu-icon span:first-child {
@@ -381,6 +383,14 @@
   .mobile-menu-heading .button {
     font-size: var(--text-subheading);
   }
+  .mobile-menu-heading .button > span[aria-hidden] {
+    display: inline-block;
+    transform-origin: center;
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  .mobile-menu-heading .button:focus-visible { color: var(--accent); }
+  .mobile-dialog .mobile-menu-heading .button:focus-visible:not(:disabled) > span[aria-hidden], .menu-toggle:focus-visible .menu-icon { transform: scale(1.05); }
+  .menu-toggle:focus-visible .menu-icon span { background: var(--accent); }
   .mobile-dialog .navigation-list {
     display: grid;
     gap: var(--space-1);
@@ -412,6 +422,9 @@
     a.navigation-link:hover, a.navigation-link:focus-visible {
       color: var(--accent);
     }
+    .mobile-menu-heading .button:hover { color: var(--accent); }
+    .mobile-dialog .mobile-menu-heading .button:hover:not(:disabled) > span[aria-hidden], .menu-toggle:hover .menu-icon { transform: scale(1.05); }
+    .menu-toggle:hover .menu-icon span { background: var(--accent); }
     a.navigation-link:hover::after, a.navigation-link:focus-visible::after {
       transform: scaleX(.58);
     }
@@ -442,4 +455,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .mobile-dialog .mobile-menu-heading .button:focus-visible:not(:disabled) > span[aria-hidden], .mobile-dialog .mobile-menu-heading .button:hover:not(:disabled) > span[aria-hidden], .menu-toggle:focus-visible .menu-icon, .menu-toggle:hover .menu-icon { transform: none; }
 }

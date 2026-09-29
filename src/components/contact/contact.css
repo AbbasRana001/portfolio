@@ -21,6 +21,10 @@
 .contact-item a:active span { transform: translateX(4px); }
 .contact-item:focus-within, .contact-item:has(a:active) { border-bottom-color: var(--accent); }
 .contact-item:focus-within dt, .contact-item:has(a:active) dt { color: var(--accent); font-weight: 500; }
+@media (max-width: 29.999rem) {
+  .contact-title { font-size: clamp(2.35rem, 11vw, 2.8rem); }
+  .contact-layout { gap: var(--space-8); }
+}
 @media (hover: hover) and (pointer: fine) {
   .contact-item:hover { border-bottom-color: var(--accent); }
   .contact-item:hover dt { color: var(--accent); font-weight: 500; }

@@ -14,7 +14,7 @@
 .certification-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 @media (min-width: 64rem) {
   .certification-mobile-list { display: none; }
-  .certifications-desktop { --certification-desktop-height: clamp(32.5rem, 42vw, 37.5rem); display: grid; grid-template-columns: minmax(13rem, .65fr) minmax(0, 1.35fr); gap: var(--space-12); align-items: start; block-size: var(--certification-desktop-height); margin-top: var(--space-6); }
+  .certifications-desktop { --certification-desktop-height: clamp(32.5rem, 42vw, 37.5rem); display: grid; grid-template-columns: minmax(14rem, .68fr) minmax(0, 1.32fr); gap: var(--space-8); align-items: start; block-size: var(--certification-desktop-height); margin-top: var(--space-6); }
   .certification-index { min-block-size: 0; block-size: 100%; margin: 0; padding: 0 var(--space-2) 0 0; overflow-y: auto; overscroll-behavior: contain; list-style: none; border-top: var(--border-width) solid var(--border); scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
   .certification-index::-webkit-scrollbar { width: var(--space-2); }
   .certification-index::-webkit-scrollbar-track { background: transparent; }
