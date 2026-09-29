@@ -1,4 +1,4 @@
-# AI / Machine Learning Portfolio
+# AI / Machine Learning & Data Science Portfolio
 
 A content-driven portfolio foundation built with Next.js App Router, React,
 strict TypeScript and Tailwind CSS. AI, Machine Learning and Data Science are the
