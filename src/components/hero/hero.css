@@ -11,7 +11,7 @@
 .hero-action .button { width: 100%; }
 .hero-action-status { margin-top: var(--space-2); color: var(--muted); font-size: var(--text-xs); }
 .hero-placeholder { margin-top: var(--space-6); }
-.hero-socials ul { display: flex; flex-wrap: wrap; gap: var(--space-6); padding: 0; list-style: none; margin-top: var(--space-6); }
+.hero-socials ul { display: flex; flex-wrap: wrap; gap: var(--space-6); padding: 0; list-style: none; margin-top: var(--space-5); }
 .hero-socials a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--touch-target); text-underline-offset: var(--space-1); font-size: var(--text-sm); }
 .data-study { width: 100%; margin: 0; justify-self: stretch; overflow: hidden; }
 .study-field { display: block; width: 100%; height: auto; overflow: visible; }

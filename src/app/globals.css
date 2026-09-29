@@ -86,7 +86,9 @@
     content: "";
     background: currentColor;
     opacity: .65;
+    transition: width var(--duration-interaction) var(--ease-standard), opacity var(--duration-interaction) var(--ease-standard);
   }
+  .section-space[data-current] .section-heading .eyebrow::after { width: var(--space-16); opacity: 1; }
   .type-display {
     font-size: var(--text-display);
     letter-spacing: var(--tracking-heading);

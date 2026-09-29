@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { siteConfig } from "@/content/site";
 import { bodyFont, codeFont, displayFont } from "@/lib/fonts";
 import { SiteNavigation } from "@/components/navigation/site-navigation";
+import { SectionCurrentState } from "@/components/layout/section-current-state";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteNavigation />
         <main id="main-content" tabIndex={-1}>{children}</main>
+        <SectionCurrentState />
       </body>
     </html>
   );

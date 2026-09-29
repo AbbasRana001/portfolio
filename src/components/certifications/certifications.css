@@ -38,13 +38,16 @@
   .certifications-desktop { grid-template-columns: minmax(15rem, .6fr) minmax(0, 1.4fr); gap: var(--space-16); }
 }
 @media (hover: hover) and (pointer: fine) {
-  .certification-selector:hover { color: var(--accent); }
+  .certification-selector:hover, .certification-selector:focus-visible { color: var(--accent); }
   .certification-selector:hover::after { transform: scaleX(.55); }
+  .certification-selector:hover .certification-selector-copy { transform: translateX(2px); }
+  .certification-selector-copy { transition: transform var(--duration-interaction) var(--ease-standard); }
   .certification-selector[aria-pressed="true"]:hover::after { transform: scaleX(1); }
   .certificate-preview-active:hover img { transform: scale(1.015); }
   .certificate-preview-active img { transition: transform var(--duration-normal) var(--ease-standard); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .certification-selector::after, .certificate-preview-active img { transition: none; }
+  .certification-selector::after, .certificate-preview-active img, .certification-selector-copy { transition: none; }
   .certificate-preview-active:hover img { transform: none; }
+  .certification-selector:hover .certification-selector-copy { transform: none; }
 }
