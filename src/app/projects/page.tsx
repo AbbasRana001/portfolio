@@ -5,7 +5,10 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Surface } from "@/components/ui/surface";
 import { getVisibleProjects, projectsCopy } from "@/content/projects";
 
-export const metadata: Metadata = { title: "Projects" };
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Selected artificial intelligence, data science, data analytics, and systems projects by Abbas Rana.",
+};
 
 export default function ProjectsPage() {
   const projects = getVisibleProjects();

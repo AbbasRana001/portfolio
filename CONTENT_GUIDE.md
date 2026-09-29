@@ -228,11 +228,13 @@ your review.
 
 ## Site settings and future feature flags
 
-In `site.ts`, replace the foundation title and description before launch. Add the
-real HTTPS production origin to `url` and a real Open Graph image. Keep
-`allowIndexing: false` while this is a setup preview; it controls metadata robots.
-Canonical URLs, sitemap, robots file and full social metadata are deferred to SEO
-implementation, so these reserved values do not create those features yet.
+`site.ts` centralizes the name, title, description, keywords and social metadata.
+Set `NEXT_PUBLIC_SITE_URL` to the real HTTPS production origin during deployment;
+canonical URLs, `robots.txt`, and `sitemap.xml` automatically use it. No placeholder
+domain is emitted when this value is absent. Add a real social-preview asset under
+`public/images/og/`, then configure its truthful path, alt text, and dimensions as
+`ogImage` in `site.ts`. Social cards use a standard summary card until that asset is
+supplied. `allowIndexing` controls production robots metadata.
 
 All optional feature flags default to false. When their sections are implemented,
 they must check both the flag and the available content. Turning on `showStats` must
