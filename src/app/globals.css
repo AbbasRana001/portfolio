@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    transition: color var(--duration-interaction) var(--ease-standard), font-weight var(--duration-interaction) var(--ease-standard);
   }
   .section-heading .eyebrow::after {
     width: var(--space-12);
@@ -88,7 +89,24 @@
     opacity: .65;
     transition: width var(--duration-interaction) var(--ease-standard), opacity var(--duration-interaction) var(--ease-standard);
   }
+  .certifications-heading .eyebrow, .contact-section .page-container > .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: color var(--duration-interaction) var(--ease-standard), font-weight var(--duration-interaction) var(--ease-standard);
+  }
+  .certifications-heading .eyebrow::after, .contact-section .page-container > .eyebrow::after {
+    width: var(--space-12);
+    height: var(--border-width);
+    content: "";
+    background: currentColor;
+    opacity: .65;
+    transition: width var(--duration-interaction) var(--ease-standard), opacity var(--duration-interaction) var(--ease-standard);
+  }
+  .section-space[data-current] .section-heading .eyebrow { font-weight: 600; }
   .section-space[data-current] .section-heading .eyebrow::after { width: var(--space-16); opacity: 1; }
+  .section-space[data-current] .certifications-heading .eyebrow, .section-space[data-current].contact-section .page-container > .eyebrow { font-weight: 600; }
+  .section-space[data-current] .certifications-heading .eyebrow::after, .section-space[data-current].contact-section .page-container > .eyebrow::after { width: var(--space-16); opacity: 1; }
   .type-display {
     font-size: var(--text-display);
     letter-spacing: var(--tracking-heading);
@@ -412,17 +430,6 @@
     .menu-toggle {
       display: none;
     }
-  }
-}
-@supports (animation-timeline: view()) {
-  .section-space:not(.hero) .section-heading .eyebrow::after {
-    width: var(--space-8);
-    animation: chapter-rule-progress linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 32%;
-  }
-  @keyframes chapter-rule-progress {
-    to { width: var(--space-16); opacity: 1; }
   }
 }
 @media (prefers-reduced-motion: reduce) {

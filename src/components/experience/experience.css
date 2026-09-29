@@ -1,4 +1,4 @@
-.experience-section { padding-top: clamp(4rem, 8vw, 6.5rem); }
+.experience-section { padding-top: clamp(4rem, 8vw, 6.5rem); padding-bottom: clamp(2.75rem, 5vw, 4.25rem); }
 .experience-list { display: grid; margin-top: var(--space-8); padding: 0; list-style: none; border-bottom: var(--border-width) solid var(--border); }
 .experience-entry { position: relative; display: grid; gap: var(--space-4); padding-block: var(--space-8); border-top: var(--border-width) solid var(--border); transition: border-color var(--duration-interaction) var(--ease-standard); }
 .experience-entry::before { position: absolute; top: calc(-1 * var(--border-width)); left: 0; width: 0; height: var(--focus-width); content: ""; background: var(--accent); transition: width var(--duration-interaction) var(--ease-standard); }

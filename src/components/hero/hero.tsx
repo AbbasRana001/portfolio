@@ -5,7 +5,7 @@ import "./hero.css";
 
 export function Hero() {
   return (
-    <Section className="hero" aria-labelledby="hero-title">
+    <Section id="introduction" className="hero" aria-labelledby="hero-title">
       <div className="hero-grid">
         <HeroContent />
         <DataStudy />

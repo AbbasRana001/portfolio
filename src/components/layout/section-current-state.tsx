@@ -10,7 +10,7 @@ export function SectionCurrentState() {
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => entry.target.toggleAttribute("data-current", entry.isIntersecting));
-    }, { rootMargin: "-28% 0px -58% 0px", threshold: 0 });
+    }, { rootMargin: "-60% 0px -39% 0px", threshold: 0 });
 
     sections.forEach(section => observer.observe(section));
     return () => observer.disconnect();

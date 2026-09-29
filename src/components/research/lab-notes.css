@@ -10,8 +10,7 @@
   border-bottom: var(--border-width) solid var(--lab-rule);
   box-shadow: inset 0 var(--space-3) 0 color-mix(in srgb, var(--lab-blue) 7%, transparent), inset 0 calc(-1 * var(--space-3)) 0 color-mix(in srgb, var(--lab-orange) 6%, transparent);
 }
-.about-section { padding-bottom: clamp(4.5rem, 8vw, 7rem); }
-.lab-notes-section { padding-top: clamp(4.5rem, 8vw, 7rem); }
+.lab-notes-section { padding-top: clamp(4rem, 6.5vw, 5.5rem); }
 .lab-notes-section::before { position: absolute; top: 0; left: 0; width: 100%; height: var(--border-width); content: ""; background: color-mix(in srgb, var(--lab-blue) 55%, transparent); }
 .lab-notes-section[data-current]::before { background: var(--lab-blue); }
 .lab-notes-section .eyebrow { color: var(--lab-blue); }

@@ -1,5 +1,5 @@
-.contact-section { padding-block: clamp(2.5rem, 5vw, 4rem); border-top: var(--border-width) solid var(--border); }
-.education-section + .contact-section { padding-top: clamp(2rem, 4vw, 3rem); }
+.contact-section { padding-top: clamp(3rem, 5vw, 4.5rem); padding-bottom: clamp(5rem, 10vw, 8rem); border-top: var(--border-width) solid var(--border); }
+.education-section + .contact-section { padding-top: clamp(3rem, 5vw, 4.5rem); }
 .contact-layout { display: grid; gap: var(--space-10); margin-top: var(--space-5); }
 .contact-layout--methods-1 { max-width: 42rem; gap: var(--space-6); }
 .contact-introduction { max-width: 42rem; }
@@ -8,8 +8,8 @@
 .contact-availability { margin-top: var(--space-4); color: var(--muted); font-size: var(--text-base); }
 .contact-index { display: grid; margin: 0; border-top: var(--border-width) solid var(--border); }
 .contact-layout--methods-1 .contact-index { max-width: 28rem; }
-.contact-item { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-4); align-items: baseline; padding-block: var(--space-4); border-bottom: var(--border-width) solid var(--border); }
-.contact-item dt { color: var(--muted); font-family: var(--font-jetbrains-mono), monospace; font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.contact-item { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--space-4); align-items: baseline; padding-block: var(--space-4); border-bottom: var(--border-width) solid var(--border); transition: border-color var(--duration-interaction) var(--ease-standard); }
+.contact-item dt { color: var(--muted); font-family: var(--font-jetbrains-mono), monospace; font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; transition: color var(--duration-interaction) var(--ease-standard), font-weight var(--duration-interaction) var(--ease-standard); }
 .contact-item dd { min-width: 0; margin: 0; }
 .contact-item a { position: relative; display: inline-flex; gap: var(--space-2); align-items: center; min-height: var(--touch-target); color: var(--foreground); font-size: var(--text-base); text-decoration: none; transition: color var(--duration-interaction) var(--ease-standard); }
 .contact-item a::after { position: absolute; right: 0; bottom: calc(var(--space-2) * -1); left: 0; height: 1px; content: ""; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--duration-interaction) var(--ease-standard); }
@@ -19,18 +19,22 @@
 .contact-item a:focus-visible span { transform: translateX(4px); }
 .contact-item a:active { color: var(--accent); }
 .contact-item a:active span { transform: translateX(4px); }
+.contact-item:focus-within, .contact-item:has(a:active) { border-bottom-color: var(--accent); }
+.contact-item:focus-within dt, .contact-item:has(a:active) dt { color: var(--accent); font-weight: 500; }
 @media (hover: hover) and (pointer: fine) {
+  .contact-item:hover { border-bottom-color: var(--accent); }
+  .contact-item:hover dt { color: var(--accent); font-weight: 500; }
   .contact-item a:hover { color: var(--accent); }
   .contact-item a:hover::after { transform: scaleX(1); }
   .contact-item a:hover span { transform: translateX(4px); }
 }
 @media (min-width: 48rem) {
-  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); column-gap: var(--space-8); align-items: end; }
+  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); column-gap: var(--space-8); align-items: center; }
 }
 @media (min-width: 64rem) {
   .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 22rem); column-gap: var(--space-16); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .contact-item a, .contact-item a::after, .contact-item a span { transition-duration: 0.01ms; }
+  .contact-item, .contact-item dt, .contact-item a, .contact-item a::after, .contact-item a span { transition-duration: 0.01ms; }
   .contact-item a:focus-visible span, .contact-item a:hover span { transform: none; }
 }
