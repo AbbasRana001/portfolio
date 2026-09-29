@@ -9,7 +9,7 @@ export const education: Education[] = [
     startYear: "2023",
     endYear: "2027",
     displayPeriod: "2023 — 2027",
-    cgpa: "3.61",
+    cgpa: "3.67",
     focusAreas: ["Machine Learning", "Data Science", "Artificial Intelligence"],
     relevantCoursework: [],
     visible: true,

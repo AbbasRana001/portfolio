@@ -11,7 +11,7 @@ export function Contact() {
 
   return (
     <Section id="contact" aria-labelledby="contact-heading" className="contact-section">
-      <p className="eyebrow">07 / CONTACT</p>
+      <p className="eyebrow">08 / CONTACT</p>
       <div className={`contact-layout${hasContactMethods ? ` contact-layout--methods-${contactMethodCount}` : " contact-layout--intro-only"}`}>
         <div className="contact-introduction">
           <h2 id="contact-heading" className="contact-title">{profile.contactHeading}</h2>

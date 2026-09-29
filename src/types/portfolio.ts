@@ -158,11 +158,19 @@ export interface Education {
 
 export interface Certification {
   id: string;
-  name: string;
+  title: string;
   issuer: string;
-  date: string;
+  issueDate: string;
+  credentialId?: string;
   credentialUrl?: ExternalUrl;
-  image?: ContentImage;
+  /** A supplied certificate image, including truthful, useful alternative text. */
+  image: ContentImage;
+  /** Optional local original certificate, separate from official verification. */
+  certificateFile?: AssetPath;
+  /** Lower values establish the list and initial active-preview order. */
+  order: number;
+  /** Hidden credentials remain in centralized content without appearing publicly. */
+  visible: boolean;
 }
 
 export interface ResearchItem {
@@ -178,7 +186,7 @@ export interface ResearchItem {
   date?: string;
 }
 
-export type SectionId = "about" | "projects" | "lab-notes" | "experience" | "contact";
+export type SectionId = "about" | "projects" | "lab-notes" | "experience" | "education" | "certifications" | "contact";
 
 export interface NavigationItem {
   label: string;

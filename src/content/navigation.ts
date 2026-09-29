@@ -1,4 +1,5 @@
 import type { NavigationItem } from "@/types/portfolio";
+import { getVisibleCertifications } from "@/content/certifications";
 import { experiences } from "@/content/experience";
 import { hasVisibleContact } from "@/content/profile";
 
@@ -8,6 +9,7 @@ export const navigation: NavigationItem[] = [
   { label: "Profile", href: "/#about", enabled: true },
   { label: "Lab Notes", href: "/#lab-notes", enabled: true },
   { label: "Experience", href: "/#experience", enabled: experiences.some(experience => experience.visible) },
+  ...(getVisibleCertifications().length > 0 ? [{ label: "Certifications", href: "/#certifications" as const, enabled: true }] : []),
   { label: "Contact", href: "/#contact", enabled: hasVisibleContact() },
 ];
 

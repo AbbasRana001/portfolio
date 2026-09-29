@@ -15,7 +15,7 @@ marked placeholder copy. No personal facts have been assumed.
 | `experience.ts` | Roles, organizations, periods, work arrangements and structured description points |
 | `education.ts` | Degree, institution, campus, period, CGPA and optional focus or coursework |
 | `research.ts` | Lab Notes: interests, studies, experiments, papers, coursework and preprints |
-| `certifications.ts` | Earned credentials, issuer, date, verification link and image |
+| `certifications.ts` | Earned credentials, issuer, issue date, verification link, certificate image and optional file |
 | `navigation.ts` | Navigation labels, section anchors, availability and menu UI copy |
 | `workflow.ts` | Explanations for the future ML lifecycle section |
 | `site.ts` | Site metadata, production URL and feature flags |
@@ -211,8 +211,10 @@ About follows Projects. Skills data remains centralized but is not currently ren
 - In `education.ts`, add `id`, `degree`, `institution`, `startYear`,
   `displayPeriod` and `visible`. Campus, end year, CGPA, focus areas and relevant
   coursework are optional. Set `visible: false` to retain a record without rendering it.
-- In `certifications.ts`, add `id`, `name`, `issuer` and `date`. Add an actual
-  `credentialUrl` and image only when available.
+- In `certifications.ts`, add `id`, `title`, `issuer`, `issueDate`, `image`, `order`
+  and `visible`. Add `credentialId`, `credentialUrl` and `certificateFile` only when
+  genuinely available. The image requires meaningful alternative text and dimensions.
+  A certification appears only when `visible: true`; do not add placeholders.
 - In `research.ts`, edit `labNotes` to add, remove or update a Lab Note. Each note
   has an `id`, displayed `identifier`, `title`, `type`, `status`, `shortDescription`
   and `topics`; `link` and `date` are optional. Use a concise unique identifier such
