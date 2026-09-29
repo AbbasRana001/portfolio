@@ -1,5 +1,5 @@
 @layer components {
-.hero { padding-block: var(--space-10) var(--section-space); }
+.hero { padding-block: var(--space-10) var(--section-space); scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
 .hero-grid { display: grid; align-items: center; gap: var(--space-12); }
 .hero-grid > * { min-width: 0; }
 .hero-content { max-width: var(--hero-copy-width); }

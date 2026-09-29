@@ -2,8 +2,8 @@ import { profile } from "@/content/profile";
 import { heroCopy } from "@/content/hero";
 
 export function HeroSocials() {
-  const links = profile.socialLinks.filter(link => link.url.trim());
-  const email = profile.email?.trim();
+  const links = profile.socialLinks.filter(link => link.url.trim() && link.showInHero !== false);
+  const email = profile.showEmailInHero ? profile.email?.trim() : undefined;
   if (!links.length && !email) return null;
 
   return (

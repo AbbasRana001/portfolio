@@ -67,9 +67,12 @@ Resume uses `profile.resumeUrl` and follows the same missing-file rule described
 above. No fake hrefs or files are generated.
 
 Add real GitHub and LinkedIn entries to `profile.socialLinks`; those labels and URLs
-are rendered as text links. Set `profile.email` to enable Email. Missing social values
-produce no link or empty social row. `githubUsername` alone does not create a link.
-Links use the same tab, so there is no unexpected new-window behavior.
+are rendered as text links. Use optional `contactLabel` for the readable destination in
+the Contact chapter and `openInNewTab: true` for an external destination that should
+open separately. Set `showInHero: false` or `showEmailInHero: false` to keep a
+contact-only destination out of the Hero. Set `profile.email` to enable its visible
+`mailto:` address. Missing social values produce no link or empty social row.
+`githubUsername` alone does not create a link.
 
 Edit the numbered introduction label and the Hero visual caption in `hero.ts`.
 The visual is illustrative geometry, not a measured dataset. `DataStudy` is an
@@ -110,10 +113,11 @@ Mexico Real Estate Price Analysis is featured; Call Center Performance Analysis 
 FastAPI Task Manager appear in the smaller grid. Edit their summaries, tags, category,
 GitHub URL and featured flag directly in `projects.ts`. The only supplied metric is
 the national size/price Pearson correlation (approximately 0.46), not model accuracy.
-The projects currently reference generated conceptual covers through their `cover`
-objects. These assets are preserved; replace `src`, `alt`, `width` and `height` with
-real screenshots or charts when available. The original Mexico SVG is also retained
-in its asset folder. No live demos or case-study links have been supplied.
+Project cards resolve one cover automatically from
+`/images/projects/<project-slug>/cover.png`. The existing project covers use this
+convention; no cover path belongs in the project data. Keep each cover at a 16:9 ratio
+and provide its truthful `coverAlt` in `projects.ts`. The original Mexico SVG is also
+retained in its asset folder. No live demos or case-study links have been supplied.
 
 `projectsConfig.showPlaceholders` is now `false`. Optional future entries with
 `status: "placeholder"` remain hidden unless explicitly enabled for layout review.
@@ -157,27 +161,21 @@ To add metrics, set `metrics` to an array of `{ label, value, context? }`. Use a
 value and explain the test split, evaluation conditions or baseline in `context` where
 applicable. There are no default numbers. Empty metric arrays render nothing.
 
-Optional fields include `problem`, `approach`, `outcome`, `github`, `liveDemo`, `cover`,
+Optional fields include `problem`, `approach`, `outcome`, `github`, `liveDemo`,
 `metrics`, `caseStudyUrl` and `caseStudy`. Metrics use `label`, `value` and optional `context`; include
 evaluation conditions when possible. Leave metrics empty when you have no measured
 results. Case studies support dataset, exploration, methodology, evaluation, results,
-challenges, improvements, deployment, lessons learned and images. None is required
-for a simple project. Structured `caseStudy` data is reserved for future detail pages;
+challenges, improvements, deployment and lessons learned. Structured `caseStudy` data is reserved for future detail pages;
 it does not create a link or a route. Detail pages are not active yet.
 
 ## Images
 
-Place project images in `public/images/projects/<slug>/`, for example `cover.webp`.
-An image object has `src`, descriptive `alt`, and actual pixel `width` and `height`.
-Use `/images/projects/<slug>/cover.webp` as the path. Other folders are reserved for
-profile, certification and Open Graph images. No fake photographs or chart data ship
-with this foundation.
-
-Assign that image object to the project's `cover`. Use an actual screenshot, diagram,
-dashboard or visualization and describe what it shows in `alt`. Next.js Image reserves
-its dimensions, loads lazily and fits the full image without cropping evidence. When
-`cover` is omitted, a simple schematic labeled as a visual placeholder appears. It is
-not a chart or project evidence. Do not reference a file until it exists.
+For every project, place one 16:9 cover at
+`/images/projects/<slug>/cover.png` and add a meaningful `coverAlt` string to that
+project's entry. The homepage and archive derive the path from `slug`, so no media
+configuration is required. Next.js Image reserves the 16:9 frame and crops the cover
+to fill it. Other folders are reserved for profile, certification and Open Graph images.
+Do not reference a project cover until its `cover.png` file exists.
 
 ## Skills, experience, education and credentials
 
@@ -294,8 +292,8 @@ The composition splits from 896px. The visualization is a dependency-free SVG wi
 a ten-second observations-to-structure loop. It lowers its height on mobile and
 settles on a static structured frame when reduced motion is requested. Navigation
 retains its 1024px breakpoint and native dialog.
-Project covers are unchanged and can be replaced through each project's `cover`
-object without changing its layout. The data model and filtering logic are intact.
+Project covers are derived from each project's slug, so adding `cover.png` is enough
+to update the homepage and archive without changing layout or filtering logic.
 
 After editing, run:
 

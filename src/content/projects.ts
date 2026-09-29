@@ -5,12 +5,7 @@ export const projects: Project[] = [
   {
     slug: "mexico-real-estate-price-analysis",
     title: "Mexico Real Estate Price Analysis",
-    cover: {
-      src: "/images/projects/mexico-real-estate-price-analysis/cover.webp",
-      alt: "Conceptual illustration of property size versus price and regional variation. Scatter marks and regional cells are illustrative, not observed data or actual geographic boundaries.",
-      width: 960,
-      height: 540,
-    },
+    coverAlt: "Conceptual illustration of property size versus price and regional variation. Scatter marks and regional cells are illustrative, not observed data or actual geographic boundaries.",
     homepageSummary: "Exploring how size and location relate to residential property prices across Mexico.",
     homepageTags: ["Python", "Pandas", "Seaborn", "Jupyter"],
     shortDescription: "Exploratory analysis of Mexican residential property listings investigating whether property prices are influenced more by property size or location.",
@@ -31,12 +26,7 @@ export const projects: Project[] = [
   {
     slug: "call-center-performance-analysis",
     title: "Call Center Performance Analysis",
-    cover: {
-      src: "/images/projects/call-center-performance-analysis/cover.webp",
-      alt: "Conceptual illustration of property size versus price and regional variation. Scatter marks and regional cells are illustrative, not observed data or actual geographic boundaries.",
-      width: 960,
-      height: 540,
-    },
+    coverAlt: "Conceptual cover artwork for the Call Center Performance Analysis project; not a dashboard screenshot or source data.",
     homepageSummary: "An interactive Excel dashboard for exploring call activity, customer satisfaction and representative performance.",
     homepageTags: ["Microsoft Excel", "Power Pivot", "DAX"],
     shortDescription: "Interactive Excel analysis of call-center performance using Pivot Tables, Power Pivot, DAX, KPIs, and dashboard-based employee comparisons.",
@@ -56,12 +46,7 @@ export const projects: Project[] = [
   {
     slug: "fastapi-task-manager",
     title: "FastAPI Task Manager",
-    cover: {
-      src: "/images/projects/fastapi-task-manager/cover.webp",
-      alt: "Conceptual illustration of property size versus price and regional variation. Scatter marks and regional cells are illustrative, not observed data or actual geographic boundaries.",
-      width: 960,
-      height: 540,
-    },
+    coverAlt: "Conceptual cover artwork for the FastAPI Task Manager project; not an application screenshot or source data.",
     homepageSummary: "A containerized task API with automated testing, security scanning and deployment to AWS EC2.",
     homepageTags: ["FastAPI", "Docker", "GitHub Actions", "AWS EC2"],
     shortDescription: "A FastAPI REST service packaged with Docker and delivered through an automated CI/CD pipeline to AWS EC2.",
@@ -120,9 +105,6 @@ export const projectsCopy = {
   emptyDescription: "Verified project details have not been added yet. Check back for the problem, approach and results behind the work.",
   noMatches: "No projects match this category.",
   reset: "Show all projects",
-  mediaPlaceholder: "Visual placeholder",
-  mediaMissing: "Conceptual illustration",
-  mediaNote: "Not a screenshot or measured data. Project media not supplied.",
   problem: "Problem",
   approach: "Approach",
   outcome: "Outcome",

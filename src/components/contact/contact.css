@@ -25,6 +25,9 @@
   .contact-title { font-size: clamp(2.35rem, 11vw, 2.8rem); }
   .contact-layout { gap: var(--space-8); }
 }
+@media (max-width: 47.999rem) {
+  .contact-item { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
+}
 @media (hover: hover) and (pointer: fine) {
   .contact-item:hover { border-bottom-color: var(--accent); }
   .contact-item:hover dt { color: var(--accent); font-weight: 500; }
@@ -33,10 +36,9 @@
   .contact-item a:hover span { transform: translateX(4px); }
 }
 @media (min-width: 48rem) {
-  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr); column-gap: var(--space-8); align-items: center; }
-}
-@media (min-width: 64rem) {
-  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 22rem); column-gap: var(--space-16); }
+  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) { gap: var(--space-8); }
+  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) .contact-index { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-8); }
+  .contact-layout:not(.contact-layout--intro-only):not(.contact-layout--methods-1) .contact-item { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
 }
 @media (prefers-reduced-motion: reduce) {
   .contact-item, .contact-item dt, .contact-item a, .contact-item a::after, .contact-item a span { transition-duration: 0.01ms; }

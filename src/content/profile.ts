@@ -2,7 +2,7 @@ import type { Profile } from "@/types/portfolio";
 
 export const profile: Profile = {
   name: "",
-  initials: "TODO",
+  initials: "Abbas Rana",
   eyebrow: "AI · MACHINE LEARNING · DATA SCIENCE",
   // TODO: Replace this explicitly marked sample headline with your own words.
   headline: "I build intelligent systems\nfrom data to deployment.",
@@ -13,10 +13,19 @@ export const profile: Profile = {
     "I am now focusing more deeply on machine learning, artificial intelligence and data science, with an emphasis on building stronger technical and research foundations.",
   ],
   aboutIsPlaceholder: false,
-  email: null, // TODO: Add your real email address.
+  email: "abbasrana0204@gmail.com",
+  showEmailInHero: false,
   githubUsername: null,
   socialLinks: [
-    { label: "GitHub", platform: "github", url: "https://github.com/AbbasRana001" },
+    { label: "GitHub", platform: "github", url: "https://github.com/AbbasRana001", showInHero: true },
+    {
+      label: "LinkedIn",
+      platform: "linkedin",
+      url: "https://www.linkedin.com/in/muhammadabbasrana",
+      contactLabel: "linkedin.com/in/muhammadabbasrana",
+      openInNewTab: true,
+      showInHero: false,
+    },
   ],
   resumeUrl: "/documents/Abbas-Rana-Resume.pdf",
   resumeViewerUrl: "/resume",

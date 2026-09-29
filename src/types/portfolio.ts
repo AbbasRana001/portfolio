@@ -11,6 +11,12 @@ export interface SocialLink {
   label: string;
   platform: "github" | "linkedin" | "other";
   url: ExternalUrl;
+  /** Optional readable destination shown in the Contact chapter. */
+  contactLabel?: string;
+  /** Opens this external contact destination in a separate tab when true. */
+  openInNewTab?: boolean;
+  /** Controls whether this destination is shown with the Hero social links. */
+  showInHero?: boolean;
 }
 
 export interface ContentImage {
@@ -39,6 +45,8 @@ export interface Profile {
   aboutIsPlaceholder: boolean;
   location?: string;
   email: string | null;
+  /** Keeps contact-only email addresses out of the Hero social links when false. */
+  showEmailInHero?: boolean;
   githubUsername: string | null;
   socialLinks: SocialLink[];
   resumeUrl: AssetPath | ExternalUrl | null;
@@ -72,12 +80,13 @@ export interface ProjectCaseStudy {
   improvements?: string;
   deployment?: string;
   lessonsLearned?: string;
-  images?: ContentImage[];
 }
 
 export interface Project {
   slug: string;
   title: string;
+  /** Accessible description for the slug-derived project cover. */
+  coverAlt: string;
   shortDescription: string;
   /** Concise homepage copy; falls back to shortDescription when omitted. */
   homepageSummary?: string;
@@ -104,7 +113,6 @@ export interface Project {
   liveDemo?: ExternalUrl;
   /** Only set when the destination actually exists; never inferred from slug. */
   caseStudyUrl?: AssetPath | ExternalUrl;
-  cover?: ContentImage;
   caseStudy?: ProjectCaseStudy;
 }
 

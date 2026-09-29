@@ -20,18 +20,20 @@ export function Contact() {
         </div>
         {hasContactMethods && (
           <dl className="contact-index">
+            {socialLinks.map(link => (
+              <div key={link.url} className="contact-item">
+                <dt>{link.label}</dt>
+                <dd><a href={link.url} target={link.openInNewTab ? "_blank" : undefined} rel={link.openInNewTab ? "noopener noreferrer" : undefined}>
+                  {link.contactLabel ?? link.label}<span aria-hidden="true">→</span>
+                </a></dd>
+              </div>
+            ))}
             {profile.email && (
               <div className="contact-item">
                 <dt>Email</dt>
                 <dd><a href={`mailto:${profile.email}`}>{profile.email}<span aria-hidden="true">→</span></a></dd>
               </div>
             )}
-            {socialLinks.map(link => (
-              <div key={link.url} className="contact-item">
-                <dt>{link.label}</dt>
-                <dd><a href={link.url}>{link.label}<span aria-hidden="true">→</span></a></dd>
-              </div>
-            ))}
             {profile.resumeUrl && (
               <div className="contact-item">
                 <dt>Resume</dt>

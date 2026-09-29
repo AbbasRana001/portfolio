@@ -14,7 +14,7 @@ export const navigation: NavigationItem[] = [
 ];
 
 export const navigationCopy = {
-  home: "Portfolio home — initials placeholder",
+  home: "Portfolio introduction",
   brandLabel: "AI / ML",
   label: "Main navigation",
   open: "Open navigation",

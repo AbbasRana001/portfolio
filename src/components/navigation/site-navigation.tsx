@@ -71,7 +71,7 @@ export function SiteNavigation() {
   return (
     <header className="site-header" data-site-header data-scrolled={scrolled || open}>
       <Container className="navigation-bar">
-        <Link className="brand" href="/" aria-label={navigationCopy.home}>
+        <Link className="brand" href="/#introduction" aria-label={navigationCopy.home}>
           <span className="brand-mark">{profile.initials}</span>
           <span className="brand-label">{navigationCopy.brandLabel}</span>
         </Link>

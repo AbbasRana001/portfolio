@@ -211,7 +211,7 @@
     border-bottom-color: var(--border);
     box-shadow: var(--shadow-header);
   }
-  .button:active:not(:disabled), .brand:active .brand-mark {
+  .button:active:not(:disabled), .brand:active {
     transform: translateY(1px);
   }
   .reading-progress {
@@ -235,23 +235,35 @@
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-1);
     min-height: var(--touch-target);
     text-decoration: none;
     flex-shrink: 0;
   }
   .brand-mark {
-    font-family: var(--font-jetbrains-mono), Consolas, monospace;
-    font-size: var(--text-xs);
-    letter-spacing: var(--tracking-label);
-    padding: var(--space-2);
-    border: var(--border-width) solid var(--accent-border);
-    border-radius: var(--radius-sm);
-    color: var(--accent);
+    color: var(--foreground);
+    font-family: var(--font-editorial), Georgia, serif;
+    font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    transition: color var(--duration-interaction) var(--ease-standard);
+    white-space: nowrap;
   }
   .brand-label {
-    font-size: var(--text-xs);
+    display: inline-flex;
+    align-items: center;
     color: var(--muted);
+    font-family: var(--font-jetbrains-mono), Consolas, monospace;
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .brand-label::before {
+    margin-right: var(--space-1);
+    color: var(--accent);
+    content: "·";
   }
   .desktop-navigation {
     display: none;
@@ -431,10 +443,9 @@
     a.navigation-link[aria-current]:hover::after, a.navigation-link[aria-current]:focus-visible::after {
       transform: scaleX(1);
     }
-    .brand:hover .brand-mark {
-      color: var(--foreground);
-    }
+    .brand:hover .brand-mark { color: var(--accent); }
   }
+  .brand:focus-visible .brand-mark { color: var(--accent); }
 /* Keep in sync with SiteNavigation's matchMedia. */
   @media (min-width: 62rem) {
     .desktop-navigation {
