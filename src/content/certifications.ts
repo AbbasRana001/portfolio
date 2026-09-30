@@ -11,8 +11,8 @@ export const certifications: Certification[] = [
     image: {
       src: "/certifications/machine-learning-specialization.png",
       alt: "Certificate for Machine Learning Specialization issued by DeepLearning.AI and Stanford Online.",
-      width: 2200,
-      height: 1700,
+      width: 2100,
+      height: 1600,
     },
     certificateFile: "/certifications/machine-learning-specialization.pdf",
     order: 1,
