@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 
 type CopyStatus = "idle" | "copied" | "error";
 
@@ -23,15 +24,19 @@ function copyWithSelection(value: string): boolean {
 }
 
 export function ContactEmailActions({ email }: { email: string }) {
+  const mailtoUrl = `mailto:${email}`;
   const [status, setStatus] = useState<CopyStatus>("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mailtoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => () => {
     if (resetTimer.current) clearTimeout(resetTimer.current);
+    if (mailtoTimer.current) clearTimeout(mailtoTimer.current);
   }, []);
 
   async function handleCopy() {
     if (resetTimer.current) clearTimeout(resetTimer.current);
+    setStatus("idle");
 
     let copied = false;
     if (navigator.clipboard?.writeText) {
@@ -51,14 +56,29 @@ export function ContactEmailActions({ email }: { email: string }) {
       }
     }
 
-    setStatus(copied ? "copied" : "error");
+    flushSync(() => setStatus(copied ? "copied" : "error"));
     resetTimer.current = setTimeout(() => setStatus("idle"), 2500);
+  }
+
+  function handleEmailClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    event.preventDefault();
+    if (mailtoTimer.current) clearTimeout(mailtoTimer.current);
+
+    const scheduleMailto = () => {
+      mailtoTimer.current = setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 120);
+    };
+
+    void handleCopy().then(scheduleMailto, scheduleMailto);
   }
 
   const label = status === "copied" ? "Copied" : status === "error" ? "Failed" : "Copy";
 
   return <>
-    <a href={`mailto:${email}`} onClick={() => { void handleCopy(); }}>{email}<span aria-hidden="true">→</span></a>
+    <a href={mailtoUrl} onClick={handleEmailClick}>{email}<span aria-hidden="true">→</span></a>
     <button type="button" className="contact-copy-email" onClick={() => { void handleCopy(); }}
       aria-label={status === "copied" ? "Email address copied" : status === "error" ? "Could not copy email address; try again" : "Copy email address"}>
       {label}
