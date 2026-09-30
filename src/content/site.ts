@@ -12,7 +12,12 @@ export const siteConfig: SiteConfig = {
   language: "en",
   keywords: ["Artificial Intelligence", "Machine Learning", "Data Science"],
   allowIndexing: true,
-  ogImage: null, // TODO: Add an actual image before enabling social metadata.
+  ogImage: {
+    src: "/images/og/portfolio-og.png",
+    alt: "Open Graph image for Muhammad Abbas Rana's AI, Machine Learning and Data Science portfolio.",
+    width: 1200,
+    height: 630,
+  },
 };
 
 // Reserved for future sections. A flag never overrides an empty collection.

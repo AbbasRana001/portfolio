@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     ...(siteConfig.url ? { url: siteConfig.url } : {}),
-    ...(siteConfig.ogImage ? {
+    ...(siteConfig.url && siteConfig.ogImage ? {
       images: [{
         url: siteConfig.ogImage.src,
         alt: siteConfig.ogImage.alt,
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     } : {}),
   },
   twitter: {
-    card: siteConfig.ogImage ? "summary_large_image" : "summary",
+    card: siteConfig.url && siteConfig.ogImage ? "summary_large_image" : "summary",
     title: siteConfig.title,
     description: siteConfig.description,
-    ...(siteConfig.ogImage ? { images: [siteConfig.ogImage.src] } : {}),
+    ...(siteConfig.url && siteConfig.ogImage ? { images: [siteConfig.ogImage.src] } : {}),
   },
 };
 
