@@ -8,7 +8,7 @@ import { Experience } from "@/components/experience/experience";
 import { LabNotes } from "@/components/research/lab-notes";
 
 export const metadata: Metadata = {
-  title: "Abbas Rana — AI, Machine Learning & Data Science",
+  title: "Abbas Rana | Portfolio",
   description: "Portfolio of Abbas Rana, focused on artificial intelligence, machine learning, data science, and applied software systems.",
 };
 
