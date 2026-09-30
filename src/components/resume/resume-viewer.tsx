@@ -1,21 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 import { resumeDataUrl } from "@/lib/resume-routes";
+
+const MobileResume = dynamic(() => import("./mobile-resume").then(module => module.MobileResume), {
+  ssr: false,
+  loading: () => <p className="resume-viewer-status" role="status">Loading resume…</p>,
+});
 
 function decodeResumeData(data: string) {
   const binary = atob(data);
   return Uint8Array.from(binary, character => character.charCodeAt(0));
 }
 
-/** Creates one local PDF Blob URL; no public PDF URL is used during normal viewing. */
+function DesktopResume({ data }: { data: Uint8Array }) {
+  const frameRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    const objectUrl = URL.createObjectURL(new Blob([new Uint8Array(data).buffer], { type: "application/pdf" }));
+    frame.src = objectUrl;
+    return () => {
+      frame.removeAttribute("src");
+      URL.revokeObjectURL(objectUrl);
+    };
+  }, [data]);
+
+  return <iframe ref={frameRef} className="resume-frame" title="Resume PDF" />;
+}
+
+/** One resume request serves the native desktop frame and the in-page mobile pages. */
 export function ResumeViewer() {
-  const [blobUrl, setBlobUrl] = useState<string>();
+  const [mode, setMode] = useState<"desktop" | "mobile" | null>(null);
+  const [data, setData] = useState<Uint8Array>();
   const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
+    const desktop = matchMedia("(min-width: 64rem)");
+    const updateMode = () => setMode(desktop.matches ? "desktop" : "mobile");
+    updateMode();
+    desktop.addEventListener("change", updateMode);
+    return () => desktop.removeEventListener("change", updateMode);
+  }, []);
+
+  useEffect(() => {
     const controller = new AbortController();
-    let objectUrl: string | undefined;
 
     async function loadResume() {
       try {
@@ -23,26 +54,21 @@ export function ResumeViewer() {
         if (!response.ok) throw new Error("Resume data request failed");
         const payload: { data?: string } = await response.json();
         if (!payload.data) throw new Error("Resume data was empty");
-        const blob = new Blob([decodeResumeData(payload.data)], { type: "application/pdf" });
-        objectUrl = URL.createObjectURL(blob);
-        setBlobUrl(objectUrl);
-      } catch (error) {
-        if ((error as DOMException).name !== "AbortError") setLoadError(true);
+        setData(decodeResumeData(payload.data));
+      } catch {
+        if (!controller.signal.aborted) setLoadError(true);
       }
     }
 
     loadResume();
-    return () => {
-      controller.abort();
-      if (objectUrl) URL.revokeObjectURL(objectUrl);
-    };
+    return () => controller.abort();
   }, []);
 
-  if (loadError) return <div className="resume-document-viewport"><p className="resume-viewer-status" role="alert">Unable to display the resume.</p></div>;
+  if (loadError) return <div className="resume-document-viewport"><p className="resume-viewer-status" role="alert">Unable to display the resume. Please try reloading this page.</p></div>;
 
   return <div className="resume-document-viewport">
-    {!blobUrl ? <p className="resume-viewer-status" role="status">Loading resume…</p> : (
-      <iframe className="resume-frame" src={blobUrl} title="Resume PDF" />
-    )}
+    {!data || !mode ? <p className="resume-viewer-status" role="status">Loading resume…</p> : mode === "mobile" ? (
+      <MobileResume data={data} />
+    ) : <DesktopResume data={data} />}
   </div>;
 }
