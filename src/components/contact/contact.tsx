@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout/section";
 import { hasVisibleContact, profile } from "@/content/profile";
-import { CopyEmailButton } from "./copy-email-button";
+import { ContactEmailActions } from "./contact-email-actions";
 import "./contact.css";
 
 export function Contact() {
@@ -32,7 +32,7 @@ export function Contact() {
             {profile.email && (
               <div className="contact-item">
                 <dt>Email</dt>
-                <dd className="contact-email-actions"><a href={`mailto:${profile.email}`}>{profile.email}<span aria-hidden="true">→</span></a><CopyEmailButton email={profile.email} /></dd>
+                <dd className="contact-email-actions"><ContactEmailActions email={profile.email} /></dd>
               </div>
             )}
             {profile.resumeUrl && (

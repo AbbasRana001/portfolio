@@ -22,7 +22,7 @@ function copyWithSelection(value: string): boolean {
   }
 }
 
-export function CopyEmailButton({ email }: { email: string }) {
+export function ContactEmailActions({ email }: { email: string }) {
   const [status, setStatus] = useState<CopyStatus>("idle");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -55,10 +55,11 @@ export function CopyEmailButton({ email }: { email: string }) {
     resetTimer.current = setTimeout(() => setStatus("idle"), 2500);
   }
 
-  const label = status === "copied" ? "Copied" : status === "error" ? "Try again" : "Copy";
+  const label = status === "copied" ? "Copied" : status === "error" ? "Failed" : "Copy";
 
   return <>
-    <button type="button" className="contact-copy-email" onClick={handleCopy}
+    <a href={`mailto:${email}`} onClick={() => { void handleCopy(); }}>{email}<span aria-hidden="true">→</span></a>
+    <button type="button" className="contact-copy-email" onClick={() => { void handleCopy(); }}
       aria-label={status === "copied" ? "Email address copied" : status === "error" ? "Could not copy email address; try again" : "Copy email address"}>
       {label}
     </button>
