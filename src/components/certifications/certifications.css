@@ -1,4 +1,4 @@
-.certifications-section { padding-top: clamp(3rem, 5vw, 4.5rem); padding-bottom: 0; border-top: var(--border-width) solid var(--border); }
+.certifications-section { padding-top: clamp(3rem, 5vw, 4.5rem); padding-bottom: var(--space-8); border-top: var(--border-width) solid var(--border); }
 .certifications-heading > * + * { margin-top: var(--space-5); }
 .certifications-desktop { display: none; }
 .certification-mobile-list { display: grid; gap: var(--space-10); margin: var(--space-8) 0 0; padding: 0; list-style: none; }
