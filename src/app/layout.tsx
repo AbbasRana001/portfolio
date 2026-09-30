@@ -8,7 +8,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   ...(siteConfig.url ? { metadataBase: new URL(siteConfig.url) } : {}),
-  title: { default: siteConfig.title, template: `%s — ${siteConfig.name}` },
+  title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   robots: { index: siteConfig.allowIndexing, follow: siteConfig.allowIndexing },

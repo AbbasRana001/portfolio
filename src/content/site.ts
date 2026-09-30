@@ -5,7 +5,7 @@ const siteUrl = configuredSiteUrl?.startsWith("https://") ? configuredSiteUrl as
 
 export const siteConfig: SiteConfig = {
   name: "Abbas Rana",
-  title: "Abbas Rana - AI, Machine Learning & Data Science",
+  title: "Abbas Rana | Portfolio",
   description: "Portfolio of Abbas Rana, a Computer Science student focused on artificial intelligence, machine learning, data science, and applied software systems.",
   // Configure NEXT_PUBLIC_SITE_URL with the real HTTPS production origin when available.
   url: siteUrl,
@@ -20,7 +20,6 @@ export const siteConfig: SiteConfig = {
   },
 };
 
-// Reserved for future sections. A flag never overrides an empty collection.
 export const features: FeatureFlags = {
   showResearch: false,
   showCertifications: false,

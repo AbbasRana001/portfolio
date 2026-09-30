@@ -3,6 +3,38 @@ import type { Certification } from "@/types/portfolio";
 // TODO: Add only certifications you have earned.
 export const certifications: Certification[] = [
   {
+    id: "machine-learning-specialization",
+    title: "Machine Learning Specialization",
+    issuer: "DeepLearning.AI · Stanford Online",
+    issueDate: "September 30, 2026",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/ORJC3QPZ53TS",
+    image: {
+      src: "/certifications/machine-learning-specialization.png",
+      alt: "Certificate for Machine Learning Specialization issued by DeepLearning.AI and Stanford Online.",
+      width: 2200,
+      height: 1700,
+    },
+    certificateFile: "/certifications/machine-learning-specialization.pdf",
+    order: 1,
+    visible: true,
+  },
+  {
+    id: "unsupervised-learning_recommenders_reinforcement-learning",
+    title: "Unsupervised Learning, Recommenders, Reinforcement Learning",
+    issuer: "DeepLearning.AI · Stanford Online",
+    issueDate: "September 30, 2026",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/O1W2IZ229RZI",
+    image: {
+      src: "/certifications/unsupervised-learning_recommenders_reinforcement-learning.png",
+      alt: "Certificate for Unsupervised Learning, Recommenders, Reinforcement Learning issued by DeepLearning.AI and Stanford Online.",
+      width: 2200,
+      height: 1700,
+    },
+    certificateFile: "/certifications/unsupervised-learning_recommenders_reinforcement-learning.pdf",
+    order: 2,
+    visible: true,
+  },
+  {
     id: "advanced-learning-algorithms",
     title: "Advanced Learning Algorithms",
     issuer: "DeepLearning.AI · Stanford Online",
@@ -15,7 +47,7 @@ export const certifications: Certification[] = [
       height: 1700,
     },
     certificateFile: "/certifications/advanced-learning-algorithms.pdf",
-    order: 1,
+    order: 3,
     visible: true,
   },
   {
@@ -31,7 +63,7 @@ export const certifications: Certification[] = [
       height: 1700,
     },
     certificateFile: "/certifications/supervised-machine-learning.pdf",
-    order: 2,
+    order: 4,
     visible: true,
   },
 ];
