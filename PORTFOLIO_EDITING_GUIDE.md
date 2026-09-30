@@ -132,7 +132,7 @@ The canonical resume PDF is:
 public/documents/Abbas-Rana-Resume.pdf
 ```
 
-Replace that file with the updated PDF while keeping the same name and path. The `/resume` route displays it in the browser's native PDF viewer. The native viewer toolbar provides download behavior; there is intentionally no separate custom download button.
+Replace that file with the updated PDF while keeping the same name and path. The `/resume` route presents it in a native PDF frame on desktop and renders its pages with PDF.js on mobile. There is intentionally no separate custom download button.
 
 The viewer loads only on `/resume`. Do not move PDF data into the homepage or duplicate the file request.
 
@@ -346,7 +346,7 @@ Verify `visible`, `order`, the public image `src`, the physical file under `publ
 
 ### The Resume does not appear
 
-Confirm `public/documents/Abbas-Rana-Resume.pdf` exists and that `resumeUrl` remains `/documents/Abbas-Rana-Resume.pdf`. Keep the `/resume` route and its native PDF viewer architecture intact.
+Confirm `public/documents/Abbas-Rana-Resume.pdf` exists and that `resumeUrl` remains `/documents/Abbas-Rana-Resume.pdf`. Keep the `/resume` route and its responsive desktop-frame/mobile-PDF.js architecture intact.
 
 ### Favicon or Open Graph image looks stale
 
