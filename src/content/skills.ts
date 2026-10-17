@@ -13,7 +13,7 @@ export const skillGroups: SkillGroup[] = [
     id: "model-evaluate", index: "02", title: "Model & Evaluate", emphasis: "primary",
     description: "Shape features and interpret analytical results.",
     process: ["Features", "Model", "Evaluation"],
-    skills: ["Feature Engineering", "Statistics"].map(name => ({ name, evidence: "demonstrated" as const })),
+    skills: ["Feature Engineering", "Statistics", "scikit-learn", "PyTorch", "Model Evaluation"].map(name => ({ name, evidence: "demonstrated" as const })),
   },
   {
     id: "communicate-evidence", index: "03", title: "Communicate Evidence", emphasis: "primary",
