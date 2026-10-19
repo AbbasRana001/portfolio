@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   // Configure NEXT_PUBLIC_SITE_URL with the real HTTPS production origin when available.
   url: siteUrl,
   language: "en",
-  keywords: ["Artificial Intelligence", "Machine Learning", "Data Science"],
+  keywords: ["Artificial Intelligence", "Machine Learning", "Data Science", "Natural Language Processing", "Computer Vision"],
   allowIndexing: true,
   ogImage: {
     src: "/images/og/portfolio-og.png",

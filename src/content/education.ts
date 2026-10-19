@@ -10,7 +10,7 @@ export const education: Education[] = [
     endYear: "2027",
     displayPeriod: "2023 — 2027",
     cgpa: "3.67",
-    focusAreas: ["Machine Learning", "Data Science", "Artificial Intelligence"],
+    focusAreas: ["Pattern Recognition", "Artificial Neural Networks and Deep Learning", "Digital Image Processing"],
     relevantCoursework: [],
     visible: true,
   },
