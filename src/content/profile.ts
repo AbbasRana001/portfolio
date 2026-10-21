@@ -13,7 +13,7 @@ export const profile: Profile = {
     "Right now I’m chasing those questions in NLP, through hate speech detection for Urdu and Roman Urdu, and I’m working toward getting this research published.",
   ],
   aboutIsPlaceholder: false,
-  email: "abbasrana2261@gmail.com",
+  email: "abbasrana0204@gmail.com",
   showEmailInHero: false,
   githubUsername: null,
   socialLinks: [
