@@ -3,6 +3,21 @@ import type { Certification } from "@/types/portfolio";
 // TODO: Add only certifications you have earned.
 export const certifications: Certification[] = [
   {
+    id: "data-science-modeling",
+    title: "Data Science Modeling",
+    issuer: "WorldQuant University",
+    issueDate: "October 29, 2026",
+    credentialUrl: "https://www.credly.com/badges/a63e3c1f-848b-4e82-98a2-b63dd3d6b3ca/public_url",
+    image: {
+      src: "/certifications/data-science-modeling.png",
+      alt: "Credly badge for Data Science Modeling issued by WorldQuant University.",
+      width: 800,
+      height: 800,
+    },
+    order: 2,
+    visible: true,
+  },
+  {
     id: "machine-learning-specialization",
     title: "Machine Learning Specialization",
     issuer: "DeepLearning.AI · Stanford Online",
@@ -31,8 +46,8 @@ export const certifications: Certification[] = [
       height: 1700,
     },
     certificateFile: "/certifications/unsupervised-learning_recommenders_reinforcement-learning.pdf",
-    order: 2,
-    visible: true,
+    order: 3,
+    visible: false,
   },
   {
     id: "advanced-learning-algorithms",
@@ -47,8 +62,8 @@ export const certifications: Certification[] = [
       height: 1700,
     },
     certificateFile: "/certifications/advanced-learning-algorithms.pdf",
-    order: 3,
-    visible: true,
+    order: 4,
+    visible: false,
   },
   {
     id: "supervised-machine-learning-regression-classification",
@@ -63,8 +78,8 @@ export const certifications: Certification[] = [
       height: 1700,
     },
     certificateFile: "/certifications/supervised-machine-learning.pdf",
-    order: 4,
-    visible: true,
+    order: 5,
+    visible: false,
   },
 ];
 

@@ -5,6 +5,8 @@
 .certification-mobile-card { display: grid; gap: var(--space-6); padding-top: var(--space-6); border-top: var(--border-width) solid var(--border); }
 .certificate-preview { margin: 0; border: var(--border-width) solid var(--border); background: var(--surface-raised); box-shadow: var(--shadow-surface); overflow: hidden; }
 .certificate-preview img { display: block; width: 100%; height: auto; object-fit: contain; }
+.certificate-preview.certificate-preview-badge { display: grid; place-items: center; aspect-ratio: 22 / 17; padding: 9% 0; border: 0; background: transparent; }
+.certificate-preview.certificate-preview-badge img { width: auto; height: 100%; min-height: 0; }
 .certification-mobile-details, .certification-active-details { display: grid; justify-items: start; gap: var(--space-5); min-width: 0; }
 .certification-mobile-details h3, .certification-active-details h3 { font-size: var(--text-project-title); font-weight: 400; letter-spacing: var(--tracking-heading); }
 .certification-metadata { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-8); margin: 0; }

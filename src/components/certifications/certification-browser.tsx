@@ -33,8 +33,11 @@ function CredentialActions({ certification }: { certification: Certification }) 
 }
 
 function CertificatePreview({ certification, active = false }: { certification: Certification; active?: boolean }) {
+  /* Square-ish images (e.g. Credly badges) are shown unframed and centered instead of filling the column. */
+  const isBadge = certification.image.width / certification.image.height < 1.15;
+
   return (
-    <figure className={`certificate-preview${active ? " certificate-preview-active" : ""}`}>
+    <figure className={`certificate-preview${active ? " certificate-preview-active" : ""}${isBadge ? " certificate-preview-badge" : ""}`}>
       <Image src={certification.image.src} alt={certification.image.alt} width={certification.image.width} height={certification.image.height} sizes="(min-width: 64rem) min(54vw, 48rem), 100vw" />
     </figure>
   );
