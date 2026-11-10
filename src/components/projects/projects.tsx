@@ -15,7 +15,10 @@ export function Projects() {
       <SectionHeading id="projects-heading" eyebrow={projectsCopy.eyebrow} title={projectsCopy.heading} description={projectsCopy.intro} />
       {homepageProjects.some(project => project.status === "placeholder") && <p className="projects-preview-note">{projectsCopy.previewNote}</p>}
       {homepageProjects.length ? <>
-        <ProjectBrowser projects={homepageProjects} />
+        <ProjectBrowser
+          projects={archiveProjects}
+          homepageProjects={homepageProjects}
+        />
         {archiveProjects.length > 0 && <ButtonLink href="/projects" variant="secondary" className="projects-archive-link">{projectsCopy.viewAll}<span aria-hidden="true">→</span></ButtonLink>}
       </> : (
         <Surface className="projects-empty">

@@ -138,7 +138,7 @@ export const projectsConfig = {
   // Drafts stay hidden; keep optional layout placeholders off for real content.
   showPlaceholders: false,
   // The homepage remains a curated selection even as the archive grows.
-  homepageProjectLimit: 6,
+  homepageProjectLimit: 5,
   homepageTagLimit: 4,
 };
 
@@ -153,7 +153,20 @@ export function getVisibleProjects() {
 
 /** Curated, ordered source for the homepage; the archive remains unbounded. */
 export function getHomepageProjects() {
-  return getVisibleProjects().filter(project => project.showOnHome).slice(0, projectsConfig.homepageProjectLimit);
+  const selected = getVisibleProjects().filter(
+    project => project.showOnHome
+  );
+
+  const featured = selected.find(project => project.featured);
+
+  const additional = selected.filter(
+    project => project.slug !== featured?.slug
+  );
+
+  return [
+    ...(featured ? [featured] : []),
+    ...additional,
+  ].slice(0, projectsConfig.homepageProjectLimit);
 }
 
 export const projectsCopy = {
