@@ -12,6 +12,7 @@ export function ProjectCard({ project, reverse = false, variant = "editorial" }:
     { label: projectsCopy.caseStudy, href: project.caseStudyUrl },
     { label: projectsCopy.github, href: project.github },
     { label: projectsCopy.liveDemo, href: project.liveDemo },
+    { label: projectsCopy.demoVideo, href: project.demoVideo },
   ].filter(link => link.href?.trim());
   const summary = project.homepageSummary ?? project.shortDescription;
   const tags = (project.homepageTags ?? project.tags).slice(0, projectsConfig.homepageTagLimit);

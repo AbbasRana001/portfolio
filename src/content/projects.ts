@@ -112,6 +112,26 @@ export const projects: Project[] = [
     outcome: "A working REST API with automated linting, security scanning, testing, container build, image publishing, and deployment.",
     tags: ["Python", "FastAPI", "Pydantic", "pytest", "Docker", "Docker Compose", "GitHub Actions", "CodeQL", "Docker Hub", "AWS EC2", "Nginx", "systemd"],
   },
+  {
+    slug: "portal-pro",
+    title: "PortalPro",
+    coverAlt: "Conceptual cover artwork for the PortalPro desktop management system project; not an application screenshot or source data.",
+    homepageSummary: "A centralized, role-based university portal streamlining access for students, faculty and administrators, built in Java with JavaFX and a normalized MySQL backend.",
+    homepageTags: ["Java", "JavaFX", "MySQL", "JDBC"],
+    shortDescription: "A Java and JavaFX desktop application giving administrators, students and teachers role-specific portals, backed by a normalized MySQL schema accessed through JDBC.",
+    description: "A university-portal project demonstrating object-oriented desktop development, relational database design and team delivery.",
+    category: "Systems",
+    featured: false,
+    showOnHome: false,
+    visible: true,
+    order: 6,
+    status: "published",
+    demoVideo: "https://www.youtube.com/watch?v=hsI7qxmfc8g",
+    problem: "Build a single desktop application that gives administrators, students and teachers role-specific access to university academic workflows, instead of separate systems.",
+    approach: "Developed in Java using object-oriented design, with a JavaFX interface built in Scene Builder and separate Admin, Student and Teacher portals. Designed a normalized MySQL schema and a UML class diagram, and connected the Java backend to the database through JDBC. Led a 3-member team.",
+    outcome: "A working desktop application with three role-based portals backed by a MySQL database, shown in a recorded video walkthrough.",
+    tags: ["Java", "JavaFX", "Scene Builder", "MySQL", "JDBC", "OOP", "UML"],
+  },
 ];
 
 export const projectsConfig = {
@@ -162,5 +182,6 @@ export const projectsCopy = {
   caseStudy: "View Case Study",
   github: "GitHub",
   liveDemo: "Live Demo",
+  demoVideo: "Watch Demo",
 };
 

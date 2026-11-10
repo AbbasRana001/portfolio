@@ -111,6 +111,7 @@ export interface Project {
   metrics?: ProjectMetric[];
   github?: ExternalUrl;
   liveDemo?: ExternalUrl;
+  demoVideo?: ExternalUrl;
   /** Only set when the destination actually exists; never inferred from slug. */
   caseStudyUrl?: AssetPath | ExternalUrl;
   caseStudy?: ProjectCaseStudy;
